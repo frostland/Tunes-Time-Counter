@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B6076091364637300BDC2BE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6076081364637300BDC2BE /* Cocoa.framework */; };
+		7B6076131364637300BDC2BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B6076111364637300BDC2BE /* InfoPlist.strings */; };
+		7B6076161364637300BDC2BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6076151364637300BDC2BE /* main.m */; };
+		7B6076191364637300BDC2BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6076171364637300BDC2BE /* Credits.rtf */; };
+		7B60761C1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B60761B1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.m */; };
+		7B60761F1364637400BDC2BE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B60761D1364637400BDC2BE /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7B6076041364637300BDC2BE /* Tunes Time Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tunes Time Counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B6076081364637300BDC2BE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7B60760B1364637300BDC2BE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7B60760C1364637300BDC2BE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7B60760D1364637300BDC2BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7B6076101364637300BDC2BE /* Tunes Time Counter-Info.plist */ = {isa = PBXFileReference; path = "Tunes Time Counter-Info.plist"; sourceTree = "<group>"; };
+		7B6076121364637300BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7B6076141364637300BDC2BE /* Tunes Time Counter-Prefix.pch */ = {isa = PBXFileReference; path = "Tunes Time Counter-Prefix.pch"; sourceTree = "<group>"; };
+		7B6076151364637300BDC2BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7B6076181364637300BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		7B60761A1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.h */ = {isa = PBXFileReference; path = Tunes_Time_CounterAppDelegate.h; sourceTree = "<group>"; };
+		7B60761B1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tunes_Time_CounterAppDelegate.m; sourceTree = "<group>"; };
+		7B60761E1364637400BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B6076011364637300BDC2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6076091364637300BDC2BE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B6075F91364637300BDC2BE = {
+			isa = PBXGroup;
+			children = (
+				7B60760E1364637300BDC2BE /* Tunes Time Counter */,
+				7B6076071364637300BDC2BE /* Frameworks */,
+				7B6076051364637300BDC2BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B6076051364637300BDC2BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B6076041364637300BDC2BE /* Tunes Time Counter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B6076071364637300BDC2BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B6076081364637300BDC2BE /* Cocoa.framework */,
+				7B60760A1364637300BDC2BE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B60760A1364637300BDC2BE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B60760B1364637300BDC2BE /* AppKit.framework */,
+				7B60760C1364637300BDC2BE /* CoreData.framework */,
+				7B60760D1364637300BDC2BE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		7B60760E1364637300BDC2BE /* Tunes Time Counter */ = {
+			isa = PBXGroup;
+			children = (
+				7B60761A1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.h */,
+				7B60761B1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.m */,
+				7B60761D1364637400BDC2BE /* MainMenu.xib */,
+				7B60760F1364637300BDC2BE /* Supporting Files */,
+			);
+			path = "Tunes Time Counter";
+			sourceTree = "<group>";
+		};
+		7B60760F1364637300BDC2BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B6076101364637300BDC2BE /* Tunes Time Counter-Info.plist */,
+				7B6076111364637300BDC2BE /* InfoPlist.strings */,
+				7B6076141364637300BDC2BE /* Tunes Time Counter-Prefix.pch */,
+				7B6076151364637300BDC2BE /* main.m */,
+				7B6076171364637300BDC2BE /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B6076031364637300BDC2BE /* Tunes Time Counter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B6076221364637400BDC2BE /* Build configuration list for PBXNativeTarget "Tunes Time Counter" */;
+			buildPhases = (
+				7B6076001364637300BDC2BE /* Sources */,
+				7B6076011364637300BDC2BE /* Frameworks */,
+				7B6076021364637300BDC2BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tunes Time Counter";
+			productName = "Tunes Time Counter";
+			productReference = 7B6076041364637300BDC2BE /* Tunes Time Counter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B6075FB1364637300BDC2BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Frost Land";
+			};
+			buildConfigurationList = 7B6075FE1364637300BDC2BE /* Build configuration list for PBXProject "Tunes Time Counter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7B6075F91364637300BDC2BE;
+			productRefGroup = 7B6076051364637300BDC2BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B6076031364637300BDC2BE /* Tunes Time Counter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B6076021364637300BDC2BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6076131364637300BDC2BE /* InfoPlist.strings in Resources */,
+				7B6076191364637300BDC2BE /* Credits.rtf in Resources */,
+				7B60761F1364637400BDC2BE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B6076001364637300BDC2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6076161364637300BDC2BE /* main.m in Sources */,
+				7B60761C1364637300BDC2BE /* Tunes_Time_CounterAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7B6076111364637300BDC2BE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B6076121364637300BDC2BE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7B6076171364637300BDC2BE /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B6076181364637300BDC2BE /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		7B60761D1364637400BDC2BE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B60761E1364637400BDC2BE /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B6076201364637400BDC2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7B6076211364637400BDC2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7B6076231364637400BDC2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Time Counter/Tunes Time Counter-Prefix.pch";
+				INFOPLIST_FILE = "Tunes Time Counter/Tunes Time Counter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7B6076241364637400BDC2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Time Counter/Tunes Time Counter-Prefix.pch";
+				INFOPLIST_FILE = "Tunes Time Counter/Tunes Time Counter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B6075FE1364637300BDC2BE /* Build configuration list for PBXProject "Tunes Time Counter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B6076201364637400BDC2BE /* Debug */,
+				7B6076211364637400BDC2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B6076221364637400BDC2BE /* Build configuration list for PBXNativeTarget "Tunes Time Counter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B6076231364637400BDC2BE /* Debug */,
+				7B6076241364637400BDC2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B6075FB1364637300BDC2BE /* Project object */;
+}
