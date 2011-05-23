@@ -15,4 +15,4 @@
 #define NSDLog(...) ((void)0)
 #endif
 
-NSString *FLDurationToString(double d);
+NSString *FLDurationToString(double d, BOOL full);

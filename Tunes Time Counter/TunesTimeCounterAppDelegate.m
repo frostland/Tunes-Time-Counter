@@ -9,6 +9,7 @@
 #import "TunesTimeCounterAppDelegate.h"
 
 #import "FLUtils.h"
+#import "FLConstants.h"
 
 @interface TunesTimeCounterAppDelegate (Private)
 
@@ -21,9 +22,20 @@
 @synthesize window, windowRefreshing, progressIndicator, tracksPropertiesController;
 @synthesize infos, tracksProperties;
 
++ (void)initialize
+{
+	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
+	
+	[defaultValues setValue:[NSNumber numberWithBool:YES] forKey:FL_UDK_FULL_INFOS];
+	
+	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+}
+
 - (id)init
 {
 	if ((self = [super init]) != nil) {
+		fullInfos = [[NSUserDefaults standardUserDefaults] boolForKey:FL_UDK_FULL_INFOS];
+		
 		justLaunched = YES;
 		[self updateInfosString];
 		tracksProperties = [NSMutableArray new];
@@ -132,6 +144,14 @@ end:
 	[self updateInfosString];
 }
 
+- (IBAction)goToNextDisplayType:(id)sender
+{
+	fullInfos = !fullInfos;
+	[[NSUserDefaults standardUserDefaults] setBool:fullInfos forKey:FL_UDK_FULL_INFOS];
+	
+	[self updateInfosString];
+}
+
 - (void)threadWillExit:(NSNotification *)n
 {
 	[threadRefreshingTracksInfos release];
@@ -178,8 +198,8 @@ end:
 	self.infos = [NSString stringWithFormat:
 					  @"%u Element%@%@ — Total%@ Time: %@, Total%@ Listened Time: %@",
 					  [selectedObjects count], [selectedObjects count] > 1? @"s": @"", selectedInfoString,
-					  selectedInfoString, FLDurationToString(sTotalDuration),
-					  selectedInfoString, FLDurationToString(sTotalListenedDuration)];
+					  selectedInfoString, FLDurationToString(sTotalDuration, fullInfos),
+					  selectedInfoString, FLDurationToString(sTotalListenedDuration, fullInfos)];
 }
 
 @end

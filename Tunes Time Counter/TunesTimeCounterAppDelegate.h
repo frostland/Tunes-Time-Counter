@@ -13,6 +13,7 @@
 #import "iTunes.h"
 
 @interface TunesTimeCounterAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate> {
+	BOOL fullInfos;
 	NSString *infos;
 	NSMutableArray *tracksProperties;
 	
@@ -35,6 +36,7 @@
 @property(retain) NSMutableArray *tracksProperties;
 
 - (IBAction)noteFilterChanged:(id)sender;
+- (IBAction)goToNextDisplayType:(id)sender;
 
 - (IBAction)refreshTracksInfos:(id)sender;
 - (IBAction)stopRefresh:(id)sender;

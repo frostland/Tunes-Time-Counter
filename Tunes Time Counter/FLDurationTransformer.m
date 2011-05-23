@@ -24,7 +24,7 @@
 
 - (id)transformedValue:(id)number
 {
-	return FLDurationToString([number doubleValue]);
+	return FLDurationToString([number doubleValue], YES);
 }
 
 @end

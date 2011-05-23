@@ -37,6 +37,7 @@
 		7B7984DA13892ED5001AB3E3 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		7B7984DE138935E3001AB3E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7B7984E013893DC2001AB3E3 /* FLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUtils.m; sourceTree = "<group>"; };
+		7B7C6CB2138A9F0F00771902 /* FLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLConstants.h; sourceTree = "<group>"; };
 		7BBA120713880B91000B0926 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		7BBA120A13880C01000B0926 /* Readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
 		7BEB8001138958EA0094B7BC /* FLDurationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLDurationTransformer.h; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 				7B7984DA13892ED5001AB3E3 /* iTunes.h */,
 				7B7984D913892DA5001AB3E3 /* FLUtils.h */,
 				7B7984E013893DC2001AB3E3 /* FLUtils.m */,
+				7B7C6CB2138A9F0F00771902 /* FLConstants.h */,
 				7B6076151364637300BDC2BE /* main.m */,
 				7B6076171364637300BDC2BE /* Credits.rtf */,
 			);
