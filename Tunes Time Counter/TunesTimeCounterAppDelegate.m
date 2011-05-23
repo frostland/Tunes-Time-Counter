@@ -83,11 +83,18 @@
 				double duration = [curTrack finish]-[curTrack start];
 				NSMutableDictionary *added = [NSMutableDictionary dictionary];
 				[added setObject:[curTrack name] forKey:@"track_name"];
+				[added setObject:[curTrack sortName] forKey:@"sort_track_name"];
 				[added setObject:[curTrack artist] forKey:@"artist"];
+				[added setObject:[curTrack sortArtist] forKey:@"sort_artist"];
 				[added setObject:[curTrack composer] forKey:@"composer"];
+				[added setObject:[curTrack sortComposer] forKey:@"sort_composer"];
 				[added setObject:[NSNumber numberWithDouble:duration] forKey:@"track_length"];
 				[added setObject:[NSNumber numberWithInteger:playedCount] forKey:@"play_count"];
 				[added setObject:[NSNumber numberWithDouble:duration*playedCount] forKey:@"total_play_time"];
+				
+				if ([[added objectForKey:@"sort_artist"] isEqualToString:@""]) [added setObject:[added objectForKey:@"artist"] forKey:@"sort_artist"];
+				if ([[added objectForKey:@"sort_composer"] isEqualToString:@""]) [added setObject:[added objectForKey:@"composer"] forKey:@"sort_composer"];
+				if ([[added objectForKey:@"sort_track_name"] isEqualToString:@""]) [added setObject:[added objectForKey:@"track_name"] forKey:@"sort_track_name"];
 				[self.tracksProperties addObject:added];
 			}
 		}
@@ -154,7 +161,7 @@ end:
 	// TODO: localize
 	BOOL infoForSelection = YES;
 	NSArray *selectedObjects = [tracksPropertiesController selectedObjects];
-	if ([selectedObjects count] == 0) {
+	if ([selectedObjects count] <= 1) {
 		infoForSelection = NO;
 		selectedObjects = [tracksPropertiesController arrangedObjects];
 	}
@@ -169,7 +176,7 @@ end:
 	
 	NSString *selectedInfoString = infoForSelection? @" Selected": @"";
 	self.infos = [NSString stringWithFormat:
-					  @"%u Element%@%@. Total%@ Time: %@, Total%@ Listened Time: %@.",
+					  @"%u Element%@%@ — Total%@ Time: %@, Total%@ Listened Time: %@",
 					  [selectedObjects count], [selectedObjects count] > 1? @"s": @"", selectedInfoString,
 					  selectedInfoString, FLDurationToString(sTotalDuration),
 					  selectedInfoString, FLDurationToString(sTotalListenedDuration)];
