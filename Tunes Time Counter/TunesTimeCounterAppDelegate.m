@@ -19,7 +19,9 @@
 
 @implementation TunesTimeCounterAppDelegate
 
-@synthesize window, windowRefreshing, progressIndicator, tracksPropertiesController;
+@synthesize window, windowRefreshing, progressIndicator, tracksPropertiesController, buttonStop;
+@synthesize columnMenuItemArtist, columnMenuItemAlbum, columnMenuItemComposer;
+@synthesize tableColumnArtist, tableColumnAlbum, tableColumnComposer;
 @synthesize infos, tracksProperties;
 
 + (void)initialize
@@ -39,7 +41,7 @@
 		justLaunched = YES;
 		[self updateInfosString];
 		tracksProperties = [NSMutableArray new];
-		iTunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+		iTunes = [[SBApplication alloc] initWithBundleIdentifier:@"com.apple.iTunes"];
 	}
 	return self;
 }
@@ -56,6 +58,13 @@
 	self.infos = nil;
 	
 	[super dealloc];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+	[columnMenuItemArtist   setState:[tableColumnArtist   isHidden]? NSOffState: NSOnState];
+	[columnMenuItemAlbum    setState:[tableColumnAlbum    isHidden]? NSOffState: NSOnState];
+	[columnMenuItemComposer setState:[tableColumnComposer isHidden]? NSOffState: NSOnState];
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification
@@ -125,6 +134,24 @@ end:
 	[self updateInfosString];
 }
 
+- (IBAction)switchArtistColumn:(id)sender
+{
+	[tableColumnArtist setHidden:![tableColumnArtist isHidden]];
+	[columnMenuItemArtist setState:([columnMenuItemArtist state] == NSOnState)? NSOffState: NSOnState];
+}
+
+- (IBAction)switchAlbumColumn:(id)sender
+{
+	[tableColumnAlbum setHidden:![tableColumnAlbum isHidden]];
+	[columnMenuItemAlbum setState:([columnMenuItemAlbum state] == NSOnState)? NSOffState: NSOnState];
+}
+
+- (IBAction)switchComposerColumn:(id)sender
+{
+	[tableColumnComposer setHidden:![tableColumnComposer isHidden]];
+	[columnMenuItemComposer setState:([columnMenuItemComposer state] == NSOnState)? NSOffState: NSOnState];
+}
+
 - (IBAction)refreshTracksInfos:(id)sender
 {
 	if ([threadRefreshingTracksInfos isExecuting]) {
@@ -132,6 +159,8 @@ end:
 		return;
 	}
 	
+	[buttonStop setEnabled:YES];
+	[buttonStop setTitle:NSLocalizedString(@"stop", nil)];
 	[progressIndicator setIndeterminate:YES];
 	[progressIndicator startAnimation:nil];
 	[NSApp beginSheet:windowRefreshing modalForWindow:window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
@@ -171,6 +200,8 @@ end:
 
 - (IBAction)stopRefresh:(id)sender
 {
+	[buttonStop setEnabled:NO];
+	[buttonStop setTitle:NSLocalizedString(@"stopping", nil)];
 	if (![threadRefreshingTracksInfos isCancelled])
 		[threadRefreshingTracksInfos cancel];
 }

@@ -9,3 +9,6 @@
 "ok maj" = "OK";
 "iTunes not running" = "iTunes Is Not Running";
 "please launch iTunes to refresh track infos" = "Please launch iTunes before using this application. It uses Applescript to communicate with iTunes, then iTunes must be launched for the communication to be made.";
+
+"stop" = "Stop";
+"stopping" = "Stopping…";

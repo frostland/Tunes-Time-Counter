@@ -742,7 +742,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">271</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {571, 379}}</string>
+				<string key="NSWindowRect">{{132, 288}, {571, 379}}</string>
 				<int key="NSWTFlags">1954022400</int>
 				<string key="NSWindowTitle">Tunes Time Counter</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1033,7 +1033,7 @@
 														<string key="NSSelector">compare:</string>
 													</object>
 												</object>
-												<object class="NSTableColumn" id="83535562">
+												<object class="NSTableColumn" id="461583889">
 													<string key="NSIdentifier">album</string>
 													<double key="NSWidth">48</double>
 													<double key="NSMinWidth">10</double>
@@ -1051,7 +1051,7 @@
 														</object>
 														<reference key="NSTextColor" ref="1010669671"/>
 													</object>
-													<object class="NSTextFieldCell" key="NSDataCell" id="31778948">
+													<object class="NSTextFieldCell" key="NSDataCell" id="546873822">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">2048</int>
 														<string key="NSContents">Text Cell</string>
@@ -1229,7 +1229,6 @@
 									<reference key="NSSuperview" ref="57690949"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="330211284"/>
-									<bool key="NSEnabled">YES</bool>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="57690949"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1256,7 +1255,7 @@
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="307665625"/>
-							<int key="NSsFlags">690</int>
+							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="513360952"/>
 							<reference key="NSHScroller" ref="955711326"/>
 							<reference key="NSContentView" ref="623428398"/>
@@ -1340,7 +1339,7 @@
 							<reference key="NSNextResponder" ref="305879951"/>
 							<int key="NSvFlags">1292</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrame">{{18, 18}, {268, 20}}</string>
+							<string key="NSFrame">{{18, 18}, {254, 20}}</string>
 							<reference key="NSSuperview" ref="305879951"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="194083477"/>
@@ -1350,7 +1349,7 @@
 						<object class="NSButton" id="194083477">
 							<reference key="NSNextResponder" ref="305879951"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{286, 12}, {96, 32}}</string>
+							<string key="NSFrame">{{272, 12}, {110, 32}}</string>
 							<reference key="NSSuperview" ref="305879951"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -1422,6 +1421,36 @@
 			</object>
 			<object class="NSCustomObject" id="755631768">
 				<string key="NSClassName">NSFontManager</string>
+			</object>
+			<object class="NSMenu" id="585569095">
+				<string key="NSTitle"/>
+				<object class="NSMutableArray" key="NSMenuItems">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="NSMenuItem" id="875299450">
+						<reference key="NSMenu" ref="585569095"/>
+						<string key="NSTitle">Artist</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
+					<object class="NSMenuItem" id="939518770">
+						<reference key="NSMenu" ref="585569095"/>
+						<string key="NSTitle">Album</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
+					<object class="NSMenuItem" id="289071257">
+						<reference key="NSMenu" ref="585569095"/>
+						<string key="NSTitle">Composer</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
+				</object>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1820,35 +1849,6 @@
 					<int key="connectionID">572</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">predicate: filterPredicate</string>
-						<reference key="source" ref="515657134"/>
-						<reference key="destination" ref="920757190"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="515657134"/>
-							<reference key="NSDestination" ref="920757190"/>
-							<string key="NSLabel">predicate: filterPredicate</string>
-							<string key="NSBinding">predicate</string>
-							<string key="NSKeyPath">filterPredicate</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSDisplayName</string>
-									<string>NSPredicateFormat</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>predicate</string>
-									<string>ANY {track_name, artist, composer} contains[cd] $value</string>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">604</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">saveDocumentAs:</string>
 						<reference key="source" ref="1014"/>
@@ -2029,10 +2029,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: arrangedObjects.album</string>
-						<reference key="source" ref="83535562"/>
+						<reference key="source" ref="461583889"/>
 						<reference key="destination" ref="920757190"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="83535562"/>
+							<reference key="NSSource" ref="461583889"/>
 							<reference key="NSDestination" ref="920757190"/>
 							<string key="NSLabel">value: arrangedObjects.album</string>
 							<string key="NSBinding">value</string>
@@ -2045,6 +2045,123 @@
 						</object>
 					</object>
 					<int key="connectionID">651</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menu</string>
+						<reference key="source" ref="496507921"/>
+						<reference key="destination" ref="585569095"/>
+					</object>
+					<int key="connectionID">656</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">predicate: filterPredicate</string>
+						<reference key="source" ref="515657134"/>
+						<reference key="destination" ref="920757190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="515657134"/>
+							<reference key="NSDestination" ref="920757190"/>
+							<string key="NSLabel">predicate: filterPredicate</string>
+							<string key="NSBinding">predicate</string>
+							<string key="NSKeyPath">filterPredicate</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSDisplayName</string>
+									<string>NSPredicateFormat</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>predicate</string>
+									<string>ANY {track_name, artist, album, composer} contains[cd] $value</string>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">661</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">tableColumnArtist</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="1046521866"/>
+					</object>
+					<int key="connectionID">662</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">tableColumnComposer</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="915553925"/>
+					</object>
+					<int key="connectionID">663</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">tableColumnAlbum</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="461583889"/>
+					</object>
+					<int key="connectionID">664</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">switchArtistColumn:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="875299450"/>
+					</object>
+					<int key="connectionID">665</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">switchAlbumColumn:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="939518770"/>
+					</object>
+					<int key="connectionID">666</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">buttonStop</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="194083477"/>
+					</object>
+					<int key="connectionID">669</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">switchComposerColumn:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="289071257"/>
+					</object>
+					<int key="connectionID">677</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">columnMenuItemArtist</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="875299450"/>
+					</object>
+					<int key="connectionID">678</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">columnMenuItemAlbum</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="939518770"/>
+					</object>
+					<int key="connectionID">679</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">columnMenuItemComposer</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="289071257"/>
+					</object>
+					<int key="connectionID">680</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2676,12 +2793,12 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="144484843"/>
-							<reference ref="1046521866"/>
-							<reference ref="915553925"/>
 							<reference ref="92231637"/>
 							<reference ref="488437175"/>
 							<reference ref="576029496"/>
-							<reference ref="83535562"/>
+							<reference ref="1046521866"/>
+							<reference ref="915553925"/>
+							<reference ref="461583889"/>
 						</object>
 						<reference key="parent" ref="57690949"/>
 					</object>
@@ -2695,37 +2812,9 @@
 						<reference key="parent" ref="831103211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">551</int>
-						<reference key="object" ref="1046521866"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="154879133"/>
-						</object>
-						<reference key="parent" ref="831103211"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">552</int>
-						<reference key="object" ref="154879133"/>
-						<reference key="parent" ref="1046521866"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">553</int>
 						<reference key="object" ref="1008862373"/>
 						<reference key="parent" ref="144484843"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">556</int>
-						<reference key="object" ref="915553925"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1066552322"/>
-						</object>
-						<reference key="parent" ref="831103211"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">557</int>
-						<reference key="object" ref="1066552322"/>
-						<reference key="parent" ref="915553925"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">558</int>
@@ -2883,18 +2972,72 @@
 						<reference key="parent" ref="725931783"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">649</int>
-						<reference key="object" ref="83535562"/>
+						<int key="objectID">652</int>
+						<reference key="object" ref="585569095"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="31778948"/>
+							<reference ref="875299450"/>
+							<reference ref="939518770"/>
+							<reference ref="289071257"/>
+						</object>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">653</int>
+						<reference key="object" ref="875299450"/>
+						<reference key="parent" ref="585569095"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">654</int>
+						<reference key="object" ref="939518770"/>
+						<reference key="parent" ref="585569095"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">655</int>
+						<reference key="object" ref="289071257"/>
+						<reference key="parent" ref="585569095"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">551</int>
+						<reference key="object" ref="1046521866"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="154879133"/>
+						</object>
+						<reference key="parent" ref="831103211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">552</int>
+						<reference key="object" ref="154879133"/>
+						<reference key="parent" ref="1046521866"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">556</int>
+						<reference key="object" ref="915553925"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="1066552322"/>
+						</object>
+						<reference key="parent" ref="831103211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">557</int>
+						<reference key="object" ref="1066552322"/>
+						<reference key="parent" ref="915553925"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">649</int>
+						<reference key="object" ref="461583889"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="546873822"/>
 						</object>
 						<reference key="parent" ref="831103211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">650</int>
-						<reference key="object" ref="31778948"/>
-						<reference key="parent" ref="83535562"/>
+						<reference key="object" ref="546873822"/>
+						<reference key="parent" ref="461583889"/>
 					</object>
 				</object>
 			</object>
@@ -3083,6 +3226,10 @@
 					<string>626.IBPluginDependency</string>
 					<string>645.IBPluginDependency</string>
 					<string>646.IBPluginDependency</string>
+					<string>652.IBPluginDependency</string>
+					<string>653.IBPluginDependency</string>
+					<string>654.IBPluginDependency</string>
+					<string>655.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>73.ImportedFromIB2</string>
 					<string>74.IBPluginDependency</string>
@@ -3286,6 +3433,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -3317,7 +3468,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">651</int>
+			<int key="maxID">680</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3400,9 +3551,15 @@
 							<string>noteFilterChanged:</string>
 							<string>refreshTracksInfos:</string>
 							<string>stopRefresh:</string>
+							<string>switchAlbumColumn:</string>
+							<string>switchArtistColumn:</string>
+							<string>switchComposerColumn:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3417,6 +3574,9 @@
 							<string>noteFilterChanged:</string>
 							<string>refreshTracksInfos:</string>
 							<string>stopRefresh:</string>
+							<string>switchAlbumColumn:</string>
+							<string>switchArtistColumn:</string>
+							<string>switchComposerColumn:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3436,20 +3596,46 @@
 								<string key="name">stopRefresh:</string>
 								<string key="candidateClassName">id</string>
 							</object>
+							<object class="IBActionInfo">
+								<string key="name">switchAlbumColumn:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">switchArtistColumn:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">switchComposerColumn:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>buttonStop</string>
+							<string>columnMenuItemAlbum</string>
+							<string>columnMenuItemArtist</string>
+							<string>columnMenuItemComposer</string>
 							<string>progressIndicator</string>
+							<string>tableColumnAlbum</string>
+							<string>tableColumnArtist</string>
+							<string>tableColumnComposer</string>
 							<string>tracksPropertiesController</string>
 							<string>window</string>
 							<string>windowRefreshing</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSButton</string>
+							<string>NSMenuItem</string>
+							<string>NSMenuItem</string>
+							<string>NSMenuItem</string>
 							<string>NSProgressIndicator</string>
+							<string>NSTableColumn</string>
+							<string>NSTableColumn</string>
+							<string>NSTableColumn</string>
 							<string>NSArrayController</string>
 							<string>NSWindow</string>
 							<string>NSWindow</string>
@@ -3459,7 +3645,14 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>buttonStop</string>
+							<string>columnMenuItemAlbum</string>
+							<string>columnMenuItemArtist</string>
+							<string>columnMenuItemComposer</string>
 							<string>progressIndicator</string>
+							<string>tableColumnAlbum</string>
+							<string>tableColumnArtist</string>
+							<string>tableColumnComposer</string>
 							<string>tracksPropertiesController</string>
 							<string>window</string>
 							<string>windowRefreshing</string>
@@ -3467,8 +3660,36 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
+								<string key="name">buttonStop</string>
+								<string key="candidateClassName">NSButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">columnMenuItemAlbum</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">columnMenuItemArtist</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">columnMenuItemComposer</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">progressIndicator</string>
 								<string key="candidateClassName">NSProgressIndicator</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableColumnAlbum</string>
+								<string key="candidateClassName">NSTableColumn</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableColumnArtist</string>
+								<string key="candidateClassName">NSTableColumn</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableColumnComposer</string>
+								<string key="candidateClassName">NSTableColumn</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tracksPropertiesController</string>
