@@ -1300,7 +1300,7 @@
 							<object class="NSButtonCell" key="NSCell" id="734903155">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">134348800</int>
-								<string key="NSContents">Gradient Button</string>
+								<string key="NSContents">Infos</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="725931783"/>
 								<int key="NSButtonFlags">-2041822977</int>

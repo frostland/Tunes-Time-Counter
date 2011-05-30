@@ -8,12 +8,11 @@
 
 #import "FLUtils.h"
 
-// TODO: localize
 NSString *FLDurationToString(double d, BOOL full) {
 	NSUInteger j = d / (3600*24);
 	NSUInteger h = d / 3600;
 	NSUInteger m = d / 60;
-	NSUInteger s = d;
+	NSUInteger s = d + .5;
 	
 	s -= m*60;
 	m -= h*60;
@@ -23,9 +22,19 @@ NSString *FLDurationToString(double d, BOOL full) {
 		else if (j == 0)      return [NSString stringWithFormat:@"%u:%02u:%02u", h, m, s];
 		else                  return [NSString stringWithFormat:@"%u:%02u:%02u:%02u", j, h, m, s];
 	} else {
-		if (j == 0 && h == 0 && m == 0) return [NSString stringWithFormat:@"%u seconds", (NSUInteger)d];
-		else if (j == 0 && h == 0)      return [NSString stringWithFormat:@"%.1f minutes", d/60.];
-		else if (j == 0)                return [NSString stringWithFormat:@"%.1f hours", d/3600.];
-		else                            return [NSString stringWithFormat:@"%.1f days", d/(3600.*24.)];
+		NSNumberFormatter *numberFormatter = [[NSNumberFormatter new] autorelease];
+		[numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+		[numberFormatter setRoundingIncrement:[NSNumber numberWithFloat:.1]];
+		
+		float v;
+		NSString *fmt;
+		if (j == 0 && h == 0 && m == 0) return [NSString stringWithFormat:NSLocalizedString(@"n second(s)", nil), (NSUInteger)(d+0.5), (d < 0.5 || d >= 1.5)? NSLocalizedString(@"plural", nil): @""];
+		else if (j == 0 && h == 0)      {v = d/60.;         fmt = NSLocalizedString(@"str minute(s)", nil);}
+		else if (j == 0)                {v = d/3600.;       fmt = NSLocalizedString(@"str hour(s)", nil);}
+		else                            {v = d/(3600.*24.); fmt = NSLocalizedString(@"str day(s)", nil);}
+		
+		NSString *vrstr = [numberFormatter stringFromNumber:[NSNumber numberWithFloat:v]];
+		float vr = [[numberFormatter numberFromString:vrstr] floatValue];
+		return [NSString stringWithFormat:fmt, vrstr, (vr == 1)? @"": NSLocalizedString(@"plural", nil)];
 	}
 }

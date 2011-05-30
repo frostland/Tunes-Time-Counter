@@ -212,13 +212,16 @@ end:
 
 - (void)updateInfosString
 {
-	// TODO: localize
 	BOOL infoForSelection = YES;
+	
+	NSUInteger nSelectedObjects;
 	NSArray *selectedObjects = [tracksPropertiesController selectedObjects];
 	if ([selectedObjects count] <= 1) {
 		infoForSelection = NO;
 		selectedObjects = [tracksPropertiesController arrangedObjects];
 	}
+	
+	nSelectedObjects = [selectedObjects count];
 	
 	double sTotalDuration = 0;
 	double sTotalListenedDuration = 0;
@@ -228,10 +231,10 @@ end:
 		sTotalListenedDuration += tl*[[curTrack objectForKey:@"play_count"] doubleValue];
 	};
 	
-	NSString *selectedInfoString = infoForSelection? @" Selected": @"";
-	self.infos = [NSString stringWithFormat:
-					  @"%u Element%@%@ — Total%@ Time: %@, Total%@ Listened Time: %@",
-					  [selectedObjects count], [selectedObjects count] > 1? @"s": @"", selectedInfoString,
+	NSString *selectedInfoString = infoForSelection? NSLocalizedString(@" selected", nil): @"";
+	self.infos = [NSString stringWithFormat:NSLocalizedString(@"general infos str", nil),
+					  nSelectedObjects, (nSelectedObjects == 0 || nSelectedObjects > 1)? NSLocalizedString(@"plural", nil): @"",
+					  selectedInfoString,
 					  selectedInfoString, FLDurationToString(sTotalDuration, fullInfos),
 					  selectedInfoString, FLDurationToString(sTotalListenedDuration, fullInfos)];
 }

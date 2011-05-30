@@ -12,3 +12,19 @@
 
 "stop" = "Stop";
 "stopping" = "Stopping…";
+
+/* First   %: number of elements
+ * Second  %: plural if more than one element
+ * Third   %: @" Selected" if elements are selected, @"" else
+ * Fourth  %: @" Selected" if elements are selected, @"" else
+ * Fifth   %: total (selected) time
+ * Sixth   %: @" Selected" if elements are selected, @"" else
+ * Seventh %: total (selected) listened time */
+"general infos str" = "%u Element%@%@ — Total%@ Time: %@, Total%@ Listened Time: %@";
+" selected" = " Selected";
+"plural" = "s";
+
+"n second(s)"   = "%u second%@";
+"str minute(s)" = "%@ minute%@";
+"str hour(s)"   = "%@ hour%@";
+"str day(s)"    = "%@ day%@";
