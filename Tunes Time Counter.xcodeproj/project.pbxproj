@@ -30,8 +30,8 @@
 		7B6076141364637300BDC2BE /* Tunes Time Counter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tunes Time Counter-Prefix.pch"; sourceTree = "<group>"; };
 		7B6076151364637300BDC2BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B6076181364637300BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		7B60761A1364637300BDC2BE /* TunesTimeCounterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TunesTimeCounterAppDelegate.h; sourceTree = "<group>"; };
-		7B60761B1364637300BDC2BE /* TunesTimeCounterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TunesTimeCounterAppDelegate.m; sourceTree = "<group>"; };
+		7B60761A1364637300BDC2BE /* TunesTimeCounterAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunesTimeCounterAppDelegate.h; sourceTree = "<group>"; };
+		7B60761B1364637300BDC2BE /* TunesTimeCounterAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunesTimeCounterAppDelegate.m; sourceTree = "<group>"; };
 		7B60761E1364637400BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		7B7984D913892DA5001AB3E3 /* FLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUtils.h; sourceTree = "<group>"; };
 		7B7984DA13892ED5001AB3E3 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };

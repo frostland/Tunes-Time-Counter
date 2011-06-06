@@ -774,20 +774,21 @@
 								<string key="NSToolbarItemPaletteLabel">Filter</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSearchField" key="NSToolbarItemView" id="515657134">
-									<nil key="NSNextResponder"/>
+									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{0, 14}, {96, 22}}</string>
+									<string key="NSFrame">{{0, 14}, {298, 22}}</string>
+									<reference key="NSSuperview"/>
+									<reference key="NSWindow"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSearchFieldCell" key="NSCell" id="734217396">
 										<int key="NSCellFlags">343014976</int>
 										<int key="NSCellFlags2">268436544</int>
-										<string key="NSContents"/>
 										<object class="NSFont" key="NSSupport" id="432057341">
 											<string key="NSName">LucidaGrande</string>
 											<double key="NSSize">13</double>
 											<int key="NSfFlags">1044</int>
 										</object>
-										<string key="NSPlaceholderString">Filter</string>
+										<string key="NSPlaceholderString">Track Name, Artist, Album or Composer</string>
 										<reference key="NSControlView" ref="515657134"/>
 										<bool key="NSDrawsBackground">YES</bool>
 										<int key="NSTextBezelStyle">1</int>
@@ -858,7 +859,7 @@
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
 								<string key="NSToolbarItemMinSize">{96, 22}</string>
-								<string key="NSToolbarItemMaxSize">{202, 22}</string>
+								<string key="NSToolbarItemMaxSize">{311, 22}</string>
 								<bool key="NSToolbarItemEnabled">YES</bool>
 								<bool key="NSToolbarItemAutovalidates">YES</bool>
 								<int key="NSToolbarItemTag">0</int>
@@ -899,7 +900,7 @@
 						<reference ref="916631735"/>
 						<reference ref="740185781"/>
 					</object>
-					<object class="NSMutableArray" key="NSToolbarIBDefaultItems">
+					<object class="NSArray" key="NSToolbarIBDefaultItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<reference ref="916631735"/>
 						<reference ref="740185781"/>
@@ -2055,35 +2056,6 @@
 					<int key="connectionID">656</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">predicate: filterPredicate</string>
-						<reference key="source" ref="515657134"/>
-						<reference key="destination" ref="920757190"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="515657134"/>
-							<reference key="NSDestination" ref="920757190"/>
-							<string key="NSLabel">predicate: filterPredicate</string>
-							<string key="NSBinding">predicate</string>
-							<string key="NSKeyPath">filterPredicate</string>
-							<object class="NSDictionary" key="NSOptions">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="dict.sortedKeys">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>NSDisplayName</string>
-									<string>NSPredicateFormat</string>
-								</object>
-								<object class="NSMutableArray" key="dict.values">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>predicate</string>
-									<string>ANY {track_name, artist, album, composer} contains[cd] $value</string>
-								</object>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">661</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">tableColumnArtist</string>
 						<reference key="source" ref="976324537"/>
@@ -2162,6 +2134,35 @@
 						<reference key="destination" ref="289071257"/>
 					</object>
 					<int key="connectionID">680</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">predicate: filterPredicate</string>
+						<reference key="source" ref="515657134"/>
+						<reference key="destination" ref="920757190"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="515657134"/>
+							<reference key="NSDestination" ref="920757190"/>
+							<string key="NSLabel">predicate: filterPredicate</string>
+							<string key="NSBinding">predicate</string>
+							<string key="NSKeyPath">filterPredicate</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSDisplayName</string>
+									<string>NSPredicateFormat</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>Track Name, Artist, Album or Composer</string>
+									<string>ANY {track_name, artist, album, composer} contains[cd] $value</string>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">683</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2746,21 +2747,6 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">533</int>
-						<reference key="object" ref="900701029"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="916631735"/>
-							<reference ref="740185781"/>
-						</object>
-						<reference key="parent" ref="972006081"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">544</int>
-						<reference key="object" ref="916631735"/>
-						<reference key="parent" ref="900701029"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">545</int>
 						<reference key="object" ref="57690949"/>
 						<object class="NSMutableArray" key="children">
@@ -2866,29 +2852,6 @@
 						<reference key="object" ref="920757190"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Tracks Controller</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">543</int>
-						<reference key="object" ref="740185781"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="515657134"/>
-						</object>
-						<reference key="parent" ref="900701029"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">541</int>
-						<reference key="object" ref="515657134"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="734217396"/>
-						</object>
-						<reference key="parent" ref="740185781"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">542</int>
-						<reference key="object" ref="734217396"/>
-						<reference key="parent" ref="515657134"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">609</int>
@@ -3038,6 +3001,44 @@
 						<int key="objectID">650</int>
 						<reference key="object" ref="546873822"/>
 						<reference key="parent" ref="461583889"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">533</int>
+						<reference key="object" ref="900701029"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="916631735"/>
+							<reference ref="740185781"/>
+						</object>
+						<reference key="parent" ref="972006081"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">543</int>
+						<reference key="object" ref="740185781"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="515657134"/>
+						</object>
+						<reference key="parent" ref="900701029"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">541</int>
+						<reference key="object" ref="515657134"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="734217396"/>
+						</object>
+						<reference key="parent" ref="740185781"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">542</int>
+						<reference key="object" ref="734217396"/>
+						<reference key="parent" ref="515657134"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">544</int>
+						<reference key="object" ref="916631735"/>
+						<reference key="parent" ref="900701029"/>
 					</object>
 				</object>
 			</object>
@@ -3468,7 +3469,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">680</int>
+			<int key="maxID">687</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
