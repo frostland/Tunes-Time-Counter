@@ -41,7 +41,7 @@
 		justLaunched = YES;
 		[self updateInfosString];
 		tracksProperties = [NSMutableArray new];
-		iTunes = [[SBApplication alloc] initWithBundleIdentifier:@"com.apple.iTunes"];
+		iTunes = (iTunesApplication *)[[SBApplication alloc] initWithBundleIdentifier:@"com.apple.iTunes"];
 	}
 	return self;
 }
