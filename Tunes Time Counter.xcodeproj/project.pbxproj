@@ -239,6 +239,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7B20850413D85F54007EC4C5 /* Release & Sign */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+			};
+			name = "Release & Sign";
+		};
+		7B20850513D85F54007EC4C5 /* Release & Sign */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tunes Time Counter/Tunes Time Counter-Prefix.pch";
+				INFOPLIST_FILE = "Tunes Time Counter/Tunes Time Counter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Release & Sign";
+		};
 		7B6076201364637400BDC2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -311,6 +343,7 @@
 			buildConfigurations = (
 				7B6076201364637400BDC2BE /* Debug */,
 				7B6076211364637400BDC2BE /* Release */,
+				7B20850413D85F54007EC4C5 /* Release & Sign */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -320,6 +353,7 @@
 			buildConfigurations = (
 				7B6076231364637400BDC2BE /* Debug */,
 				7B6076241364637400BDC2BE /* Release */,
+				7B20850513D85F54007EC4C5 /* Release & Sign */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
