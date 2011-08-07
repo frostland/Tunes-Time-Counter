@@ -100,11 +100,11 @@
 		7B60760E1364637300BDC2BE /* Tunes Time Counter */ = {
 			isa = PBXGroup;
 			children = (
+				7B60761D1364637400BDC2BE /* MainMenu.xib */,
 				7B60761A1364637300BDC2BE /* TunesTimeCounterAppDelegate.h */,
 				7B60761B1364637300BDC2BE /* TunesTimeCounterAppDelegate.m */,
 				7BEB8001138958EA0094B7BC /* FLDurationTransformer.h */,
 				7BEB8002138958EA0094B7BC /* FLDurationTransformer.m */,
-				7B60761D1364637400BDC2BE /* MainMenu.xib */,
 				7B60760F1364637300BDC2BE /* Supporting Files */,
 			);
 			path = "Tunes Time Counter";

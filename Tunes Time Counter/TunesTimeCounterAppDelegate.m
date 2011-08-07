@@ -114,6 +114,7 @@
 				[added setObject:[NSNumber numberWithDouble:duration] forKey:@"track_length"];
 				[added setObject:[NSNumber numberWithInteger:playedCount] forKey:@"play_count"];
 				[added setObject:[NSNumber numberWithDouble:duration*playedCount] forKey:@"total_play_time"];
+				if ([curTrack playedDate] != nil) [added setObject:[curTrack playedDate] forKey:@"last_played_date"];
 				
 				if ([[added objectForKey:@"sort_track_name"] isEqualToString:@""]) [added setObject:[added objectForKey:@"track_name"] forKey:@"sort_track_name"];
 				if ([[added objectForKey:@"sort_artist"] isEqualToString:@""]) [added setObject:[added objectForKey:@"artist"] forKey:@"sort_artist"];
