@@ -12,6 +12,8 @@
 #import <Cocoa/Cocoa.h>
 #import "iTunes.h"
 
+#import "FLPreferencesWindowController.h"
+
 @interface TunesTimeCounterAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate> {
 	BOOL fullInfos;
 	NSString *infos;
@@ -27,6 +29,8 @@
 	NSArrayController *tracksPropertiesController;
 	NSTableColumn *tableColumnArtist, *tableColumnAlbum, *tableColumnComposer;
 	NSMenuItem *columnMenuItemArtist, *columnMenuItemAlbum, *columnMenuItemComposer;
+	
+	FLPreferencesWindowController *prefWindowController;
 	
 	NSThread *threadRefreshingTracksInfos;
 	iTunesApplication *iTunes;
@@ -49,6 +53,8 @@
 
 @property(copy) NSString *infos;
 @property(retain) NSMutableArray *tracksProperties;
+
+- (IBAction)showPreferences:(id)sender;
 
 - (IBAction)noteFilterChanged:(id)sender;
 - (IBAction)goToNextDisplayType:(id)sender;

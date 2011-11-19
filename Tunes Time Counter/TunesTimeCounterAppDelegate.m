@@ -29,6 +29,7 @@
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 	
 	[defaultValues setValue:[NSNumber numberWithBool:YES] forKey:FL_UDK_FULL_INFOS];
+	[defaultValues setValue:[NSNumber numberWithBool:NO]  forKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
@@ -48,6 +49,9 @@
 
 - (void)dealloc
 {
+	[prefWindowController release];
+	prefWindowController = nil;
+	
 	[threadRefreshingTracksInfos release];
 	threadRefreshingTracksInfos = nil;
 	[tracksProperties release];
@@ -91,6 +95,7 @@
 		goto end;
 	}
 	
+	BOOL showsZeroLength = [[NSUserDefaults standardUserDefaults] boolForKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	[self.tracksProperties removeAllObjects];
 	
 	for (iTunesSource *curSource in iTunes.sources) {
@@ -120,7 +125,7 @@
 				if ([[added objectForKey:@"sort_artist"] isEqualToString:@""]) [added setObject:[added objectForKey:@"artist"] forKey:@"sort_artist"];
 				if ([[added objectForKey:@"sort_album"] isEqualToString:@""]) [added setObject:[added objectForKey:@"album"] forKey:@"sort_album"];
 				if ([[added objectForKey:@"sort_composer"] isEqualToString:@""]) [added setObject:[added objectForKey:@"composer"] forKey:@"sort_composer"];
-				[self.tracksProperties addObject:added];
+				if (showsZeroLength || duration > 0) [self.tracksProperties addObject:added];
 			}
 		}
 	}
@@ -128,11 +133,18 @@
 end:
 	[self didChangeValueForKey:@"tracksProperties"];
 	[pool drain];
+	[NSThread exit];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
 	[self updateInfosString];
+}
+
+- (IBAction)showPreferences:(id)sender
+{
+	if (!prefWindowController) prefWindowController = [[FLPreferencesWindowController alloc] initWithWindowNibName:@"FLPreferencesWindow"];
+	[prefWindowController showWindow:self];
 }
 
 - (IBAction)switchArtistColumn:(id)sender
@@ -163,7 +175,8 @@ end:
 	[buttonStop setEnabled:YES];
 	[buttonStop setTitle:NSLocalizedString(@"stop", nil)];
 	[progressIndicator setIndeterminate:YES];
-	[progressIndicator startAnimation:nil];
+	[progressIndicator stopAnimation:self];
+	[progressIndicator startAnimation:self];
 	[NSApp beginSheet:windowRefreshing modalForWindow:window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 	
 	threadRefreshingTracksInfos = [[NSThread alloc] initWithTarget:self selector:@selector(doRefreshTracksInfos:) object:nil];
