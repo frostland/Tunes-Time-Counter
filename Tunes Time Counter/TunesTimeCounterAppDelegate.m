@@ -1,10 +1,10 @@
-//
-//  TunesTimeCounterAppDelegate.m
-//  Tunes Time Counter
-//
-//  Created by François LAMBOLEY on 4/24/11.
-//  Copyright 2011 Frost Land. All rights reserved.
-//
+/*
+ * TunesTimeCounterAppDelegate.m
+ * Tunes Time Counter
+ *
+ * Created by François LAMBOLEY on 4/24/11.
+ * Copyright 2011 Frost Land. All rights reserved.
+ */
 
 #import "TunesTimeCounterAppDelegate.h"
 
