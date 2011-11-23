@@ -91,7 +91,7 @@
 	[self willChangeValueForKey:@"tracksProperties"];
 	
 	if (![iTunes isRunning]) {
-		[[NSAlert alertWithMessageText:NSLocalizedString(@"iTunes not running", nil) defaultButton:NSLocalizedString(@"ok maj", nil) alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"please launch iTunes to refresh track infos", nil)] runModal];
+		[[NSAlert alertWithMessageText:NSLocalizedString(@"iTunes not running", nil) defaultButton:NSLocalizedString(@"ok maj", nil) alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"please launch iTunes to refresh track infos", nil)] performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:NO];
 		goto end;
 	}
 	
