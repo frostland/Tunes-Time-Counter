@@ -8,6 +8,8 @@
 
 #import "FLUtils.h"
 
+
+
 NSString *FLDurationToString(double d, BOOL full) {
 	NSUInteger j = d / (3600*24);
 	NSUInteger h = d / 3600;
@@ -18,9 +20,9 @@ NSString *FLDurationToString(double d, BOOL full) {
 	m -= h*60;
 	h -= j*24;
 	if (full) {
-		if (j == 0 && h == 0) return [NSString stringWithFormat:@"%u:%02u", m, s];
-		else if (j == 0)      return [NSString stringWithFormat:@"%u:%02u:%02u", h, m, s];
-		else                  return [NSString stringWithFormat:@"%u:%02u:%02u:%02u", j, h, m, s];
+		if (j == 0 && h == 0) return [NSString stringWithFormat:@"%lu:%02lu", (unsigned long)m, (unsigned long)s];
+		else if (j == 0)      return [NSString stringWithFormat:@"%lu:%02lu:%02lu", (unsigned long)h, (unsigned long)m, (unsigned long)s];
+		else                  return [NSString stringWithFormat:@"%lu:%02lu:%02lu:%02lu", (unsigned long)j, (unsigned long)h, (unsigned long)m, (unsigned long)s];
 	} else {
 		NSNumberFormatter *numberFormatter = [[NSNumberFormatter new] autorelease];
 		[numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
