@@ -345,17 +345,16 @@
             <value key="minSize" type="size" width="242" height="87"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="571" height="379"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="545">
-                        <rect key="frame" x="-1" y="25" width="573" height="355"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <clipView key="contentView" ambiguous="YES" id="NP3-9R-mng">
-                            <rect key="frame" x="1" y="0.0" width="571" height="354"/>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="545">
+                        <rect key="frame" x="-1" y="24" width="573" height="356"/>
+                        <clipView key="contentView" id="NP3-9R-mng">
+                            <rect key="frame" x="1" y="0.0" width="571" height="355"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" autosaveName="Main Table View" headerView="547" id="549">
-                                    <rect key="frame" x="0.0" y="0.0" width="571" height="329"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="571" height="330"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -535,9 +534,8 @@
                             </connections>
                         </tableHeaderView>
                     </scrollView>
-                    <button fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="625">
-                        <rect key="frame" x="6" y="6" width="14" height="14"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button horizontalHuggingPriority="1000" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="625">
+                        <rect key="frame" x="6" y="5" width="11" height="15"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshTemplate" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="626">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -546,9 +544,11 @@
                             <action selector="refreshTracksInfos:" target="494" id="627"/>
                         </connections>
                     </button>
-                    <button fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="645">
-                        <rect key="frame" x="28" y="2" width="523" height="23"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="645">
+                        <rect key="frame" x="25" y="1" width="521" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="gOp-Gd-VDd"/>
+                        </constraints>
                         <buttonCell key="cell" type="smallSquare" title="Infos" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" controlSize="small" state="on" imageScaling="proportionallyDown" inset="2" id="646">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -559,6 +559,17 @@
                         </connections>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="545" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="-1" id="59N-hn-kpb"/>
+                    <constraint firstItem="645" firstAttribute="top" secondItem="545" secondAttribute="bottom" id="CYh-La-sfc"/>
+                    <constraint firstItem="645" firstAttribute="centerX" secondItem="372" secondAttribute="centerX" id="HVl-ia-knd"/>
+                    <constraint firstAttribute="trailing" secondItem="545" secondAttribute="trailing" constant="-1" id="Pfs-hj-S96"/>
+                    <constraint firstItem="625" firstAttribute="centerY" secondItem="645" secondAttribute="centerY" id="W2b-pw-8po"/>
+                    <constraint firstItem="645" firstAttribute="leading" secondItem="625" secondAttribute="trailing" constant="8" id="lcT-tS-sJO"/>
+                    <constraint firstItem="625" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="6" id="pw0-DG-0ZB"/>
+                    <constraint firstItem="545" firstAttribute="top" secondItem="372" secondAttribute="top" constant="-1" id="wRW-jt-RUu"/>
+                    <constraint firstAttribute="bottom" secondItem="645" secondAttribute="bottom" constant="1" id="wX5-xR-KZ5"/>
+                </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="46D86D20-9E53-434B-80B8-DEAE0800CBFC" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="533">
                 <allowedToolbarItems>
@@ -641,7 +652,7 @@ Gw
                     <constraint firstItem="612" firstAttribute="centerY" secondItem="611" secondAttribute="centerY" constant="-1" id="pCj-S5-XeK"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="139" y="-47.5"/>
+            <point key="canvasLocation" x="139" y="-222"/>
         </window>
         <arrayController editable="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="568" userLabel="Tracks Controller">
             <declaredKeys>
