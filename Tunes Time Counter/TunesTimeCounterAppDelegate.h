@@ -37,22 +37,22 @@
 	
 	BOOL justLaunched;
 }
-@property(assign) IBOutlet NSWindow *window;
+@property(retain) IBOutlet NSWindow *window;
 
-@property(assign) IBOutlet NSButton *buttonStop;
-@property(assign) IBOutlet NSWindow *windowRefreshing;
-@property(assign) IBOutlet NSProgressIndicator *progressIndicator;
+@property(retain) IBOutlet NSButton *buttonStop;
+@property(retain) IBOutlet NSWindow *windowRefreshing;
+@property(retain) IBOutlet NSProgressIndicator *progressIndicator;
 
-@property(assign) IBOutlet NSArrayController *tracksPropertiesController;
-@property(assign) IBOutlet NSTableColumn *tableColumnArtist;
-@property(assign) IBOutlet NSTableColumn *tableColumnAlbum;
-@property(assign) IBOutlet NSTableColumn *tableColumnComposer;
-@property(assign) IBOutlet NSMenuItem *columnMenuItemArtist;
-@property(assign) IBOutlet NSMenuItem *columnMenuItemAlbum;
-@property(assign) IBOutlet NSMenuItem *columnMenuItemComposer;
+@property(retain) IBOutlet NSArrayController *tracksPropertiesController;
+@property(retain) IBOutlet NSTableColumn *tableColumnArtist;
+@property(retain) IBOutlet NSTableColumn *tableColumnAlbum;
+@property(retain) IBOutlet NSTableColumn *tableColumnComposer;
+@property(retain) IBOutlet NSMenuItem *columnMenuItemArtist;
+@property(retain) IBOutlet NSMenuItem *columnMenuItemAlbum;
+@property(retain) IBOutlet NSMenuItem *columnMenuItemComposer;
 
 @property(copy) NSString *infos;
-@property(retain) NSMutableArray *tracksProperties;
+@property(retain) NSArray *tracksProperties;
 
 - (IBAction)showPreferences:(id)sender;
 

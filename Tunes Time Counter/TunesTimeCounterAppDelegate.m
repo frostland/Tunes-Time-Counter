@@ -47,23 +47,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[prefWindowController release];
-	prefWindowController = nil;
-	
-	[threadRefreshingTracksInfos release];
-	threadRefreshingTracksInfos = nil;
-	[tracksProperties release];
-	tracksProperties = nil;
-	[iTunes release];
-	iTunes = nil;
-	
-	self.infos = nil;
-	
-	[super dealloc];
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
 	[columnMenuItemArtist   setState:[tableColumnArtist   isHidden]? NSOffState: NSOnState];
@@ -86,10 +69,6 @@
 
 - (void)doRefreshTracksInfos:(id)threadDatas
 {
-	/* We are in a thread */
-	NSAutoreleasePool *pool = [NSAutoreleasePool new];
-	[self willChangeValueForKey:@"tracksProperties"];
-	
 	if (!iTunes.isRunning) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"iTunes not running", nil)
@@ -99,18 +78,26 @@
 										informativeTextWithFormat:NSLocalizedString(@"please launch iTunes to refresh track infos", nil)];
 			[alert runModal];
 		});
-		goto end;
+		[NSThread exit];
+		return;
 	}
 	
 	BOOL showsZeroLength = [NSUserDefaults.standardUserDefaults boolForKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
-	[self.tracksProperties removeAllObjects];
+	
+	NSMutableArray *newTrackProperties = [NSMutableArray new];
+	void (^end)(void) = ^{
+		dispatch_async(dispatch_get_main_queue(), ^{
+			self.tracksProperties = newTrackProperties;
+		});
+		[NSThread exit];
+	};
 	
 	for (iTunesSource *curSource in iTunes.sources) {
 		if ([curSource kind] != iTunesESrcLibrary) continue;
 		
 		for (iTunesPlaylist *curPlaylist in [curSource libraryPlaylists]) {
 			for (iTunesFileTrack *curTrack in [[curPlaylist tracks] get]) {
-				if ([[NSThread currentThread] isCancelled]) goto end;
+				if (NSThread.currentThread.isCancelled) {end(); return;}
 				
 				NSInteger playedCount = [curTrack playedCount];
 				double duration = [curTrack finish]-[curTrack start];
@@ -132,15 +119,12 @@
 				if ([[added objectForKey:@"sort_artist"] isEqualToString:@""]) [added setObject:[added objectForKey:@"artist"] forKey:@"sort_artist"];
 				if ([[added objectForKey:@"sort_album"] isEqualToString:@""]) [added setObject:[added objectForKey:@"album"] forKey:@"sort_album"];
 				if ([[added objectForKey:@"sort_composer"] isEqualToString:@""]) [added setObject:[added objectForKey:@"composer"] forKey:@"sort_composer"];
-				if (showsZeroLength || duration > 0) [self.tracksProperties addObject:added];
+				if (showsZeroLength || duration > 0) [newTrackProperties addObject:added];
 			}
 		}
 	}
 	
-end:
-	[self didChangeValueForKey:@"tracksProperties"];
-	[pool drain];
-	[NSThread exit];
+	end();
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
@@ -174,7 +158,7 @@ end:
 
 - (IBAction)refreshTracksInfos:(id)sender
 {
-	if ([threadRefreshingTracksInfos isExecuting]) {
+	if (threadRefreshingTracksInfos.isExecuting) {
 		NSDLog(@"We shouldn't arrive here...");
 		return;
 	}
@@ -187,7 +171,7 @@ end:
 	[NSApp beginSheet:windowRefreshing modalForWindow:window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 	
 	threadRefreshingTracksInfos = [[NSThread alloc] initWithTarget:self selector:@selector(doRefreshTracksInfos:) object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(threadWillExit:) name:NSThreadWillExitNotification object:threadRefreshingTracksInfos];
+	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(threadWillExit:) name:NSThreadWillExitNotification object:threadRefreshingTracksInfos];
 	
 	[threadRefreshingTracksInfos start];
 }
@@ -207,12 +191,11 @@ end:
 
 - (void)threadWillExit:(NSNotification *)n
 {
-	[threadRefreshingTracksInfos release];
 	threadRefreshingTracksInfos = nil;
-	[self updateInfosString];
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
-		[NSApp endSheet:windowRefreshing];
+		[self updateInfosString];
+		[NSApp endSheet:self.windowRefreshing];
 	});
 }
 
@@ -225,7 +208,7 @@ end:
 {
 	[buttonStop setEnabled:NO];
 	[buttonStop setTitle:NSLocalizedString(@"stopping", nil)];
-	if (![threadRefreshingTracksInfos isCancelled])
+	if (!threadRefreshingTracksInfos.isCancelled)
 		[threadRefreshingTracksInfos cancel];
 }
 

@@ -24,7 +24,7 @@ NSString *FLDurationToString(double d, BOOL full) {
 		else if (j == 0)      return [NSString stringWithFormat:@"%lu:%02lu:%02lu", (unsigned long)h, (unsigned long)m, (unsigned long)s];
 		else                  return [NSString stringWithFormat:@"%lu:%02lu:%02lu:%02lu", (unsigned long)j, (unsigned long)h, (unsigned long)m, (unsigned long)s];
 	} else {
-		NSNumberFormatter *numberFormatter = [[NSNumberFormatter new] autorelease];
+		NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
 		[numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
 		[numberFormatter setRoundingIncrement:[NSNumber numberWithFloat:.1]];
 		
