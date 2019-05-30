@@ -31,13 +31,13 @@
 	[defaultValues setValue:[NSNumber numberWithBool:YES] forKey:FL_UDK_FULL_INFOS];
 	[defaultValues setValue:[NSNumber numberWithBool:NO]  forKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	
-	[[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+	[NSUserDefaults.standardUserDefaults registerDefaults:defaultValues];
 }
 
 - (id)init
 {
 	if ((self = [super init]) != nil) {
-		fullInfos = [[NSUserDefaults standardUserDefaults] boolForKey:FL_UDK_FULL_INFOS];
+		fullInfos = [NSUserDefaults.standardUserDefaults boolForKey:FL_UDK_FULL_INFOS];
 		
 		justLaunched = YES;
 		[self updateInfosString];
@@ -90,12 +90,19 @@
 	NSAutoreleasePool *pool = [NSAutoreleasePool new];
 	[self willChangeValueForKey:@"tracksProperties"];
 	
-	if (![iTunes isRunning]) {
-		[[NSAlert alertWithMessageText:NSLocalizedString(@"iTunes not running", nil) defaultButton:NSLocalizedString(@"ok maj", nil) alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"please launch iTunes to refresh track infos", nil)] performSelectorOnMainThread:@selector(runModal) withObject:nil waitUntilDone:NO];
+	if (!iTunes.isRunning) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"iTunes not running", nil)
+														defaultButton:NSLocalizedString(@"ok maj", nil)
+													 alternateButton:nil
+														  otherButton:nil
+										informativeTextWithFormat:NSLocalizedString(@"please launch iTunes to refresh track infos", nil)];
+			[alert runModal];
+		});
 		goto end;
 	}
 	
-	BOOL showsZeroLength = [[NSUserDefaults standardUserDefaults] boolForKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
+	BOOL showsZeroLength = [NSUserDefaults.standardUserDefaults boolForKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	[self.tracksProperties removeAllObjects];
 	
 	for (iTunesSource *curSource in iTunes.sources) {
@@ -193,7 +200,7 @@ end:
 - (IBAction)goToNextDisplayType:(id)sender
 {
 	fullInfos = !fullInfos;
-	[[NSUserDefaults standardUserDefaults] setBool:fullInfos forKey:FL_UDK_FULL_INFOS];
+	[NSUserDefaults.standardUserDefaults setBool:fullInfos forKey:FL_UDK_FULL_INFOS];
 	
 	[self updateInfosString];
 }
@@ -204,7 +211,9 @@ end:
 	threadRefreshingTracksInfos = nil;
 	[self updateInfosString];
 	
-	[NSApp endSheet:windowRefreshing];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[NSApp endSheet:windowRefreshing];
+	});
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
