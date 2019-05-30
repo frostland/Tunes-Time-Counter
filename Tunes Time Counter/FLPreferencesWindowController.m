@@ -8,6 +8,8 @@
 
 #import "FLPreferencesWindowController.h"
 
+
+
 @implementation FLPreferencesWindowController
 
 - (id)initWithWindow:(NSWindow *)window
@@ -23,7 +25,7 @@
 {
 	[super windowDidLoad];
 	
-	// Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+	/* nop */
 }
 
 @end

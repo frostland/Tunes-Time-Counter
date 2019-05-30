@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface FLPreferencesWindowController : NSWindowController {
-}
+
+
+@interface FLPreferencesWindowController : NSWindowController
 
 @end

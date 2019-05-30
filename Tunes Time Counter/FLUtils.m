@@ -1,9 +1,9 @@
 /*
- *  FLUtils.c
- *  Tunes Time Counter
+ * FLUtils.c
+ * Tunes Time Counter
  *
- *  Created by François LAMBOLEY on 5/22/11.
- *  Copyright 2011 Frost Land. All rights reserved.
+ * Created by François LAMBOLEY on 5/22/11.
+ * Copyright 2011 Frost Land. All rights reserved.
  */
 
 #import "FLUtils.h"

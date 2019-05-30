@@ -14,6 +14,8 @@
 
 #import "FLPreferencesWindowController.h"
 
+
+
 @interface TunesTimeCounterAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate> {
 	BOOL fullInfos;
 	NSString *infos;
@@ -37,6 +39,7 @@
 	
 	BOOL justLaunched;
 }
+
 @property(retain) IBOutlet NSWindow *window;
 
 @property(retain) IBOutlet NSButton *buttonStop;

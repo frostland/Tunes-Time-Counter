@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FLDurationTransformer : NSValueTransformer {
-}
+
+
+@interface FLDurationTransformer : NSValueTransformer
 
 @end
