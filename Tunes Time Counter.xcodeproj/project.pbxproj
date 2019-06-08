@@ -11,15 +11,15 @@
 		7B6076131364637300BDC2BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B6076111364637300BDC2BE /* InfoPlist.strings */; };
 		7B6076161364637300BDC2BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6076151364637300BDC2BE /* main.m */; };
 		7B6076191364637300BDC2BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7B6076171364637300BDC2BE /* Credits.rtf */; };
-		7B60761C1364637300BDC2BE /* TunesTimeCounterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B60761B1364637300BDC2BE /* TunesTimeCounterAppDelegate.m */; };
+		7B60761C1364637300BDC2BE /* FRLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B60761B1364637300BDC2BE /* FRLAppDelegate.m */; };
 		7B60761F1364637400BDC2BE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B60761D1364637400BDC2BE /* MainMenu.xib */; };
 		7B7984DD138935E3001AB3E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B7984DF138935E3001AB3E3 /* Localizable.strings */; };
-		7B7984E113893DC2001AB3E3 /* FLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7984E013893DC2001AB3E3 /* FLUtils.m */; };
+		7B7984E113893DC2001AB3E3 /* FRLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7984E013893DC2001AB3E3 /* FRLUtils.m */; };
 		7B93E38022A16DBA00709971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B93E37F22A16DBA00709971 /* Assets.xcassets */; };
-		7B9AA2C51427FBBA000D5CB4 /* FLPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA2C41427FBBA000D5CB4 /* FLPreferencesWindowController.m */; };
-		7B9AA2C81427FBE2000D5CB4 /* FLPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9AA2C71427FBE2000D5CB4 /* FLPreferencesWindow.xib */; };
+		7B9AA2C51427FBBA000D5CB4 /* FRLPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA2C41427FBBA000D5CB4 /* FRLPreferencesWindowController.m */; };
+		7B9AA2C81427FBE2000D5CB4 /* FRLPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9AA2C71427FBE2000D5CB4 /* FRLPreferencesWindow.xib */; };
 		7BBA120813880B91000B0926 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA120713880B91000B0926 /* ScriptingBridge.framework */; };
-		7BEB8003138958EA0094B7BC /* FLDurationTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB8002138958EA0094B7BC /* FLDurationTransformer.m */; };
+		7BEB8003138958EA0094B7BC /* FRLDurationTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB8002138958EA0094B7BC /* FRLDurationTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,22 +34,22 @@
 		7B6076141364637300BDC2BE /* Tunes Time Counter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tunes Time Counter-Prefix.pch"; sourceTree = "<group>"; };
 		7B6076151364637300BDC2BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B6076181364637300BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		7B60761A1364637300BDC2BE /* TunesTimeCounterAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunesTimeCounterAppDelegate.h; sourceTree = "<group>"; };
-		7B60761B1364637300BDC2BE /* TunesTimeCounterAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TunesTimeCounterAppDelegate.m; sourceTree = "<group>"; };
-		7B7984D913892DA5001AB3E3 /* FLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUtils.h; sourceTree = "<group>"; };
+		7B60761A1364637300BDC2BE /* FRLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLAppDelegate.h; sourceTree = "<group>"; };
+		7B60761B1364637300BDC2BE /* FRLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLAppDelegate.m; sourceTree = "<group>"; };
+		7B7984D913892DA5001AB3E3 /* FRLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLUtils.h; sourceTree = "<group>"; };
 		7B7984DA13892ED5001AB3E3 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		7B7984DE138935E3001AB3E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7B7984E013893DC2001AB3E3 /* FLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUtils.m; sourceTree = "<group>"; };
-		7B7C6CB2138A9F0F00771902 /* FLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLConstants.h; sourceTree = "<group>"; };
+		7B7984E013893DC2001AB3E3 /* FRLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLUtils.m; sourceTree = "<group>"; };
+		7B7C6CB2138A9F0F00771902 /* FRLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLConstants.h; sourceTree = "<group>"; };
 		7B93E37F22A16DBA00709971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B94D1ED22A07D8000848832 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		7B9AA2C31427FBBA000D5CB4 /* FLPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPreferencesWindowController.h; sourceTree = "<group>"; };
-		7B9AA2C41427FBBA000D5CB4 /* FLPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPreferencesWindowController.m; sourceTree = "<group>"; };
-		7B9AA2C71427FBE2000D5CB4 /* FLPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLPreferencesWindow.xib; sourceTree = "<group>"; };
+		7B9AA2C31427FBBA000D5CB4 /* FRLPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLPreferencesWindowController.h; sourceTree = "<group>"; };
+		7B9AA2C41427FBBA000D5CB4 /* FRLPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLPreferencesWindowController.m; sourceTree = "<group>"; };
+		7B9AA2C71427FBE2000D5CB4 /* FRLPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRLPreferencesWindow.xib; sourceTree = "<group>"; };
 		7BBA120713880B91000B0926 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		7BBA120A13880C01000B0926 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		7BEB8001138958EA0094B7BC /* FLDurationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLDurationTransformer.h; sourceTree = "<group>"; };
-		7BEB8002138958EA0094B7BC /* FLDurationTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLDurationTransformer.m; sourceTree = "<group>"; };
+		7BEB8001138958EA0094B7BC /* FRLDurationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLDurationTransformer.h; sourceTree = "<group>"; };
+		7BEB8002138958EA0094B7BC /* FRLDurationTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLDurationTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +108,13 @@
 			children = (
 				7B342B42147C8B6C003FD577 /* Tunes Time Counter.entitlements */,
 				7B60761D1364637400BDC2BE /* MainMenu.xib */,
-				7B60761A1364637300BDC2BE /* TunesTimeCounterAppDelegate.h */,
-				7B60761B1364637300BDC2BE /* TunesTimeCounterAppDelegate.m */,
-				7B9AA2C71427FBE2000D5CB4 /* FLPreferencesWindow.xib */,
-				7B9AA2C31427FBBA000D5CB4 /* FLPreferencesWindowController.h */,
-				7B9AA2C41427FBBA000D5CB4 /* FLPreferencesWindowController.m */,
-				7BEB8001138958EA0094B7BC /* FLDurationTransformer.h */,
-				7BEB8002138958EA0094B7BC /* FLDurationTransformer.m */,
+				7B60761A1364637300BDC2BE /* FRLAppDelegate.h */,
+				7B60761B1364637300BDC2BE /* FRLAppDelegate.m */,
+				7B9AA2C71427FBE2000D5CB4 /* FRLPreferencesWindow.xib */,
+				7B9AA2C31427FBBA000D5CB4 /* FRLPreferencesWindowController.h */,
+				7B9AA2C41427FBBA000D5CB4 /* FRLPreferencesWindowController.m */,
+				7BEB8001138958EA0094B7BC /* FRLDurationTransformer.h */,
+				7BEB8002138958EA0094B7BC /* FRLDurationTransformer.m */,
 				7B60760F1364637300BDC2BE /* Supporting Files */,
 			);
 			path = "Tunes Time Counter";
@@ -129,9 +129,9 @@
 				7B7984DF138935E3001AB3E3 /* Localizable.strings */,
 				7B6076141364637300BDC2BE /* Tunes Time Counter-Prefix.pch */,
 				7B7984DA13892ED5001AB3E3 /* iTunes.h */,
-				7B7984D913892DA5001AB3E3 /* FLUtils.h */,
-				7B7984E013893DC2001AB3E3 /* FLUtils.m */,
-				7B7C6CB2138A9F0F00771902 /* FLConstants.h */,
+				7B7984D913892DA5001AB3E3 /* FRLUtils.h */,
+				7B7984E013893DC2001AB3E3 /* FRLUtils.m */,
+				7B7C6CB2138A9F0F00771902 /* FRLConstants.h */,
 				7B6076151364637300BDC2BE /* main.m */,
 				7B6076171364637300BDC2BE /* Credits.rtf */,
 			);
@@ -164,6 +164,7 @@
 		7B6075FB1364637300BDC2BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FRL;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Frost Land";
 				TargetAttributes = {
@@ -209,7 +210,7 @@
 				7B60761F1364637400BDC2BE /* MainMenu.xib in Resources */,
 				7B7984DD138935E3001AB3E3 /* Localizable.strings in Resources */,
 				7B93E38022A16DBA00709971 /* Assets.xcassets in Resources */,
-				7B9AA2C81427FBE2000D5CB4 /* FLPreferencesWindow.xib in Resources */,
+				7B9AA2C81427FBE2000D5CB4 /* FRLPreferencesWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,10 +222,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B6076161364637300BDC2BE /* main.m in Sources */,
-				7B60761C1364637300BDC2BE /* TunesTimeCounterAppDelegate.m in Sources */,
-				7B7984E113893DC2001AB3E3 /* FLUtils.m in Sources */,
-				7BEB8003138958EA0094B7BC /* FLDurationTransformer.m in Sources */,
-				7B9AA2C51427FBBA000D5CB4 /* FLPreferencesWindowController.m in Sources */,
+				7B60761C1364637300BDC2BE /* FRLAppDelegate.m in Sources */,
+				7B7984E113893DC2001AB3E3 /* FRLUtils.m in Sources */,
+				7BEB8003138958EA0094B7BC /* FRLDurationTransformer.m in Sources */,
+				7B9AA2C51427FBBA000D5CB4 /* FRLPreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

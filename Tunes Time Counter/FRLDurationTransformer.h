@@ -1,5 +1,5 @@
 /*
- * FLDurationTransformer.h
+ * FRLDurationTransformer.h
  * Tunes Time Counter
  * 
  * Created by François LAMBOLEY on 5/22/11.
@@ -10,6 +10,6 @@
 
 
 
-@interface FLDurationTransformer : NSValueTransformer
+@interface FRLDurationTransformer : NSValueTransformer
 
 @end

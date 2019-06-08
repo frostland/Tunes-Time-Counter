@@ -1,5 +1,5 @@
 /*
- * FLUtils.h
+ * FRLUtils.h
  * Tunes Time Counter
  *
  * Created by François LAMBOLEY on 5/22/11.
@@ -17,4 +17,4 @@
 # define NSDLog(...) ((void)0)
 #endif
 
-NSString *FLDurationToString(double d, BOOL full);
+NSString *FRLDurationToString(double d, BOOL full);

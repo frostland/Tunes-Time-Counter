@@ -1,5 +1,5 @@
 /*
- * TunesTimeCounterAppDelegate.h
+ * FRLAppDelegate.h
  * Tunes Time Counter
  * 
  * This class is the delegate of the application
@@ -12,27 +12,15 @@
 #import <Cocoa/Cocoa.h>
 #import "iTunes.h"
 
-#import "FLPreferencesWindowController.h"
+#import "FRLPreferencesWindowController.h"
 
 
 
-@interface TunesTimeCounterAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate> {
+@interface FRLAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate> {
 	BOOL fullInfos;
-	NSString *infos;
-	NSMutableArray *tracksProperties;
 	
 @private
-	NSWindow *window;
-	
-	NSButton *buttonStop;
-	NSWindow *windowRefreshing;
-	NSProgressIndicator *progressIndicator;
-	
-	NSArrayController *tracksPropertiesController;
-	NSTableColumn *tableColumnArtist, *tableColumnAlbum, *tableColumnComposer;
-	NSMenuItem *columnMenuItemArtist, *columnMenuItemAlbum, *columnMenuItemComposer;
-	
-	FLPreferencesWindowController *prefWindowController;
+	FRLPreferencesWindowController *prefWindowController;
 	
 	NSThread *threadRefreshingTracksInfos;
 	iTunesApplication *iTunes;

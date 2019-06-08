@@ -1,22 +1,22 @@
 /*
- * FLDurationTransformer.m
+ * FRLDurationTransformer.m
  * Tunes Time Counter
  * 
  * Created by François LAMBOLEY on 5/22/11.
  * Copyright 2011 Frost Land. All rights reserved.
  */
 
-#import "FLDurationTransformer.h"
+#import "FRLDurationTransformer.h"
 
-#import "FLUtils.h"
+#import "FRLUtils.h"
 
 
 
-@implementation FLDurationTransformer
+@implementation FRLDurationTransformer
 
 + (Class)transformedValueClass
 {
-    return [NSString class];
+    return NSString.class;
 }
 
 + (BOOL)allowsReverseTransformation
@@ -26,7 +26,7 @@
 
 - (id)transformedValue:(id)number
 {
-	return FLDurationToString([number doubleValue], YES);
+	return FRLDurationToString([number doubleValue], YES);
 }
 
 @end

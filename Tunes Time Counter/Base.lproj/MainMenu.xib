@@ -445,10 +445,10 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="568" name="value" keyPath="arrangedObjects.track_length" id="640">
+                                                <binding destination="568" name="value" keyPath="arrangedObjects.track_length" id="Uf8-A2-Zbo">
                                                     <dictionary key="options">
-                                                        <integer key="NSConditionallySetsEditable" value="1"/>
-                                                        <string key="NSValueTransformerName">FLDurationTransformer</string>
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                        <string key="NSValueTransformerName">FRLDurationTransformer</string>
                                                     </dictionary>
                                                 </binding>
                                             </connections>
@@ -503,10 +503,10 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="568" name="value" keyPath="arrangedObjects.total_play_time" id="639">
+                                                <binding destination="568" name="value" keyPath="arrangedObjects.total_play_time" id="CLD-Tf-mCc">
                                                     <dictionary key="options">
-                                                        <integer key="NSConditionallySetsEditable" value="1"/>
-                                                        <string key="NSValueTransformerName">FLDurationTransformer</string>
+                                                        <bool key="NSConditionallySetsEditable" value="YES"/>
+                                                        <string key="NSValueTransformerName">FRLDurationTransformer</string>
                                                     </dictionary>
                                                 </binding>
                                             </connections>
@@ -668,7 +668,7 @@ Gw
                 <binding destination="494" name="contentArray" keyPath="tracksProperties" id="570"/>
             </connections>
         </arrayController>
-        <customObject id="494" customClass="TunesTimeCounterAppDelegate">
+        <customObject id="494" customClass="FRLAppDelegate">
             <connections>
                 <outlet property="buttonStop" destination="612" id="669"/>
                 <outlet property="columnMenuItemAlbum" destination="654" id="679"/>

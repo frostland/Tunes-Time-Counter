@@ -1,38 +1,33 @@
 /*
- * TunesTimeCounterAppDelegate.m
+ * FRLAppDelegate.m
  * Tunes Time Counter
  *
  * Created by François LAMBOLEY on 4/24/11.
  * Copyright 2011 Frost Land. All rights reserved.
  */
 
-#import "TunesTimeCounterAppDelegate.h"
+#import "FRLAppDelegate.h"
 
-#import "FLUtils.h"
-#import "FLConstants.h"
+#import "FRLUtils.h"
+#import "FRLConstants.h"
 
 
 
-@interface TunesTimeCounterAppDelegate (Private)
+@interface FRLAppDelegate (Private)
 
 - (void)updateInfosString;
 
 @end
 
 
-@implementation TunesTimeCounterAppDelegate
-
-@synthesize window, windowRefreshing, progressIndicator, tracksPropertiesController, buttonStop;
-@synthesize columnMenuItemArtist, columnMenuItemAlbum, columnMenuItemComposer;
-@synthesize tableColumnArtist, tableColumnAlbum, tableColumnComposer;
-@synthesize infos, tracksProperties;
+@implementation FRLAppDelegate
 
 + (void)initialize
 {
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
 	
-	[defaultValues setValue:[NSNumber numberWithBool:YES] forKey:FL_UDK_FULL_INFOS];
-	[defaultValues setValue:[NSNumber numberWithBool:NO]  forKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
+	[defaultValues setValue:[NSNumber numberWithBool:YES] forKey:FRL_UDK_FULL_INFOS];
+	[defaultValues setValue:[NSNumber numberWithBool:NO]  forKey:FRL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	
 	[NSUserDefaults.standardUserDefaults registerDefaults:defaultValues];
 }
@@ -40,11 +35,11 @@
 - (id)init
 {
 	if ((self = [super init]) != nil) {
-		fullInfos = [NSUserDefaults.standardUserDefaults boolForKey:FL_UDK_FULL_INFOS];
+		fullInfos = [NSUserDefaults.standardUserDefaults boolForKey:FRL_UDK_FULL_INFOS];
 		
 		justLaunched = YES;
 		[self updateInfosString];
-		tracksProperties = [NSMutableArray new];
+		self.tracksProperties = [NSMutableArray new];
 		iTunes = (iTunesApplication *)[[SBApplication alloc] initWithBundleIdentifier:@"com.apple.iTunes"];
 	}
 	return self;
@@ -52,9 +47,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	[columnMenuItemArtist   setState:[tableColumnArtist   isHidden]? NSOffState: NSOnState];
-	[columnMenuItemAlbum    setState:[tableColumnAlbum    isHidden]? NSOffState: NSOnState];
-	[columnMenuItemComposer setState:[tableColumnComposer isHidden]? NSOffState: NSOnState];
+	[self.columnMenuItemArtist   setState:[self.tableColumnArtist   isHidden]? NSOffState: NSOnState];
+	[self.columnMenuItemAlbum    setState:[self.tableColumnAlbum    isHidden]? NSOffState: NSOnState];
+	[self.columnMenuItemComposer setState:[self.tableColumnComposer isHidden]? NSOffState: NSOnState];
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification
@@ -85,7 +80,7 @@
 		return;
 	}
 	
-	BOOL showsZeroLength = [NSUserDefaults.standardUserDefaults boolForKey:FL_UDK_SHOW_ZERO_LENGTH_TRACKS];
+	BOOL showsZeroLength = [NSUserDefaults.standardUserDefaults boolForKey:FRL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	
 	NSMutableArray *newTrackProperties = [NSMutableArray new];
 	void (^end)(void) = ^{
@@ -137,26 +132,26 @@
 
 - (IBAction)showPreferences:(id)sender
 {
-	if (!prefWindowController) prefWindowController = [[FLPreferencesWindowController alloc] initWithWindowNibName:@"FLPreferencesWindow"];
+	if (!prefWindowController) prefWindowController = [[FRLPreferencesWindowController alloc] initWithWindowNibName:@"FRLPreferencesWindow"];
 	[prefWindowController showWindow:self];
 }
 
 - (IBAction)switchArtistColumn:(id)sender
 {
-	[tableColumnArtist setHidden:![tableColumnArtist isHidden]];
-	[columnMenuItemArtist setState:([columnMenuItemArtist state] == NSOnState)? NSOffState: NSOnState];
+	[self.tableColumnArtist setHidden:![self.tableColumnArtist isHidden]];
+	[self.columnMenuItemArtist setState:([self.columnMenuItemArtist state] == NSOnState)? NSOffState: NSOnState];
 }
 
 - (IBAction)switchAlbumColumn:(id)sender
 {
-	[tableColumnAlbum setHidden:![tableColumnAlbum isHidden]];
-	[columnMenuItemAlbum setState:([columnMenuItemAlbum state] == NSOnState)? NSOffState: NSOnState];
+	[self.tableColumnAlbum setHidden:![self.tableColumnAlbum isHidden]];
+	[self.columnMenuItemAlbum setState:([self.columnMenuItemAlbum state] == NSOnState)? NSOffState: NSOnState];
 }
 
 - (IBAction)switchComposerColumn:(id)sender
 {
-	[tableColumnComposer setHidden:![tableColumnComposer isHidden]];
-	[columnMenuItemComposer setState:([columnMenuItemComposer state] == NSOnState)? NSOffState: NSOnState];
+	[self.tableColumnComposer setHidden:![self.tableColumnComposer isHidden]];
+	[self.columnMenuItemComposer setState:([self.columnMenuItemComposer state] == NSOnState)? NSOffState: NSOnState];
 }
 
 - (IBAction)refreshTracksInfos:(id)sender
@@ -166,12 +161,12 @@
 		return;
 	}
 	
-	[buttonStop setEnabled:YES];
-	[buttonStop setTitle:NSLocalizedString(@"stop", nil)];
-	[progressIndicator setIndeterminate:YES];
-	[progressIndicator stopAnimation:self];
-	[progressIndicator startAnimation:self];
-	[NSApp beginSheet:windowRefreshing modalForWindow:window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
+	[self.buttonStop setEnabled:YES];
+	[self.buttonStop setTitle:NSLocalizedString(@"stop", nil)];
+	[self.progressIndicator setIndeterminate:YES];
+	[self.progressIndicator stopAnimation:self];
+	[self.progressIndicator startAnimation:self];
+	[NSApp beginSheet:self.windowRefreshing modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 	
 	threadRefreshingTracksInfos = [[NSThread alloc] initWithTarget:self selector:@selector(doRefreshTracksInfos:) object:nil];
 	[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(threadWillExit:) name:NSThreadWillExitNotification object:threadRefreshingTracksInfos];
@@ -187,7 +182,7 @@
 - (IBAction)goToNextDisplayType:(id)sender
 {
 	fullInfos = !fullInfos;
-	[NSUserDefaults.standardUserDefaults setBool:fullInfos forKey:FL_UDK_FULL_INFOS];
+	[NSUserDefaults.standardUserDefaults setBool:fullInfos forKey:FRL_UDK_FULL_INFOS];
 	
 	[self updateInfosString];
 }
@@ -204,13 +199,13 @@
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
-	[windowRefreshing orderOut:nil];
+	[self.windowRefreshing orderOut:nil];
 }
 
 - (IBAction)stopRefresh:(id)sender
 {
-	[buttonStop setEnabled:NO];
-	[buttonStop setTitle:NSLocalizedString(@"stopping", nil)];
+	[self.buttonStop setEnabled:NO];
+	[self.buttonStop setTitle:NSLocalizedString(@"stopping", nil)];
 	if (!threadRefreshingTracksInfos.isCancelled)
 		[threadRefreshingTracksInfos cancel];
 }
@@ -218,17 +213,17 @@
 @end
 
 
-@implementation TunesTimeCounterAppDelegate (Private)
+@implementation FRLAppDelegate (Private)
 
 - (void)updateInfosString
 {
 	BOOL infoForSelection = YES;
 	
 	NSUInteger nSelectedObjects;
-	NSArray *selectedObjects = [tracksPropertiesController selectedObjects];
+	NSArray *selectedObjects = [self.tracksPropertiesController selectedObjects];
 	if ([selectedObjects count] <= 1) {
 		infoForSelection = NO;
-		selectedObjects = [tracksPropertiesController arrangedObjects];
+		selectedObjects = [self.tracksPropertiesController arrangedObjects];
 	}
 	
 	nSelectedObjects = [selectedObjects count];
@@ -245,8 +240,8 @@
 	self.infos = [NSString stringWithFormat:NSLocalizedString(@"general infos str", nil),
 					  nSelectedObjects, (nSelectedObjects == 0 || nSelectedObjects > 1)? NSLocalizedString(@"plural", nil): @"",
 					  selectedInfoString,
-					  selectedInfoString, FLDurationToString(sTotalDuration, fullInfos),
-					  selectedInfoString, FLDurationToString(sTotalListenedDuration, fullInfos)];
+					  selectedInfoString, FRLDurationToString(sTotalDuration, fullInfos),
+					  selectedInfoString, FRLDurationToString(sTotalListenedDuration, fullInfos)];
 }
 
 @end

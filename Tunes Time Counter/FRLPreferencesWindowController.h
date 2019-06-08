@@ -1,5 +1,5 @@
 /*
- * FLPreferencesWindowController.h
+ * FRLPreferencesWindowController.h
  * Tunes Time Counter
  *
  * Created by François LAMBOLEY on 9/20/11.
@@ -10,6 +10,6 @@
 
 
 
-@interface FLPreferencesWindowController : NSWindowController
+@interface FRLPreferencesWindowController : NSWindowController
 
 @end

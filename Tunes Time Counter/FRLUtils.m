@@ -1,16 +1,16 @@
 /*
- * FLUtils.c
+ * FRLUtils.c
  * Tunes Time Counter
  *
  * Created by François LAMBOLEY on 5/22/11.
  * Copyright 2011 Frost Land. All rights reserved.
  */
 
-#import "FLUtils.h"
+#import "FRLUtils.h"
 
 
 
-NSString *FLDurationToString(double d, BOOL full) {
+NSString *FRLDurationToString(double d, BOOL full) {
 	NSUInteger j = d / (3600*24);
 	NSUInteger h = d / 3600;
 	NSUInteger m = d / 60;
