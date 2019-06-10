@@ -21,7 +21,7 @@
 	<key>HPDBookAccessPath</key>
 	<string>TunesTimeCounter.html</string>
 	<key>HPDBookIconPath</key>
-	<string>shared/app_icon_32.png</string>
+	<string>shared/gfx/app_icon_32.png</string>
 	<key>HPDBookIndexPath</key>
 	<string>TunesTimeCounter.helpindex</string>
 	<key>HPDBookTitle</key>
