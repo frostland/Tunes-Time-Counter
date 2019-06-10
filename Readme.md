@@ -13,3 +13,9 @@ Nothing! 😊
 ```bash
 sdef /Applications/iTunes.app | sdp -fh --basename "iTunes"
 ```
+
+## To generate the help index
+```bash
+hiutil -C -a -g -s en -l en -vv -f Tunes\ Time\ Counter/Tunes\ Time\ Counter.help/Contents/Resources/en.lproj/TunesTimeCounter.helpindex Tunes\ Time\ Counter/Tunes\ Time\ Counter.help/Contents/Resources/en.lproj
+```
+(Once for each languages in the help folder.)

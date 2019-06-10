@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Specs says the index page must be in xhtml. Other pages can be in HTML4 (🤦‍♂️). -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -7,11 +8,72 @@
 		<meta name="keywords" content="home,welcome"/>
 		<meta name="description" content="Starting point of the Tunes Time Counter documentation."/>
 		<meta name="AppleTitle" content="Tunes Time Counter Help"/>
+		<link rel="stylesheet" href="../shared/styles/main.css"/>
 	</head>
 	
 	<body>
 		<!--<a name="Anchor_Example"/>-->
 		<!--Link to the anchor: <a href="help:anchor=Anchor_Example bookID=fr.frostland.Tunes-Time-Counter.help">Go To Anchor</a>-->
-		<h1>Tunes Time Counter Help</h1>
+		<h1 class="center"><img src="../shared/gfx/app_icon_32.png" style="vertical-align: text-top;"/> Tunes Time Counter &ndash; Help</h1>
+		<h2>The Basics</h2>
+		<p>
+			The application will read all of your iTunes library and tell you how
+			much time you’ve spent listening to each track in the library. Under
+			the hood, a simple multiplication is taking place for each of your
+			tracks: the length of the track times the number of times you’ve
+			listened to it. Pretty simple, no?<br/>
+			You’ll also get the total time spent listening to music! This time we
+			use the addition operator. It is very powerful and gives exactly the
+			value we seek.
+		</p>
+		<p>
+			⚠️ The app <b>requires</b> iTunes to be launched for the app to work.
+			If you try and launch the app when iTunes is not launched, don’t
+			panick though. You’ll get a very informative error message informing
+			you to launch iTunes and try again. (You can click the little arrow at
+			the bottom-left of the main window to try again.)<br/>
+			This happens because Tunes Time Counter uses a technology called Apple
+			Events to read your library. This technology requires the destination
+			application to be launched in order to function.
+		</p>
+		<h2>iTunes and Apple Music</h2>
+		<p>
+			A question you could ask: I have subscribed to Apple Music. Will this
+			app tell me the time I spent listening tracks that are not in my
+			library?<br/>
+			Short answer: No. And there is nothing I can do about it, sorry.
+		</p>
+		<h2>Computation Time</h2>
+		<p>
+			Another question you could ask would be: So I have understood that you
+			do a simple multiplication and addition for each of my tracks in my
+			library. This seems pretty simple, it should be fast! How come the app
+			takes forever to load the info I want?<br/>
+			Yes, the computations are fast, indeed. However, Apple Events
+			communication is not. It is actually really slow. Even more so since a
+			few releases of macOS (somewhere around Sierra). Apple added a lot of
+			security and privacy features to macOS, which is great! However, it
+			also slowed the Apple Events inter-process communication.
+		</p>
+		<h2>Zero-Length Tracks</h2>
+		<p>
+			If you get a lot of tracks whose length is 0, you can hide them in the
+			preferences. The change take effect at the next refresh.<br/>
+			Usually these tracks are radio stations and other <i>live</i> tracks
+			that are not correctly detected as non-real tracks and are thus
+			displayed in the list of tracks.
+		</p>
+		<h2>UI Customization</h2>
+		<p>
+			In the window with the list of tracks, you can choose to show or hide
+			the Artist, Album and Composer columns. Simply right-click the
+			table-view header and choose the column you want to show or hide.
+		</p>
+		<h2>Refreshing the List of Tracks</h2>
+		<p>
+			If you want to get more up-to-date list of tracks and listen time after
+			having listened to iTunes for a few hours, you can click the little
+			arrow at the bottom left of the window.
+		</p>
 	</body>
 </html>
