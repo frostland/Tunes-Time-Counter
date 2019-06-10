@@ -18,6 +18,7 @@
 		7B93E38022A16DBA00709971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B93E37F22A16DBA00709971 /* Assets.xcassets */; };
 		7B9AA2C51427FBBA000D5CB4 /* FRLPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA2C41427FBBA000D5CB4 /* FRLPreferencesWindowController.m */; };
 		7B9AA2C81427FBE2000D5CB4 /* FRLPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B9AA2C71427FBE2000D5CB4 /* FRLPreferencesWindow.xib */; };
+		7BA5316922AEFE3400FC56E2 /* Tunes Time Counter.help in Resources */ = {isa = PBXBuildFile; fileRef = 7BA5316822AEFE3400FC56E2 /* Tunes Time Counter.help */; };
 		7BBA120813880B91000B0926 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBA120713880B91000B0926 /* ScriptingBridge.framework */; };
 		7BEB8003138958EA0094B7BC /* FRLDurationTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEB8002138958EA0094B7BC /* FRLDurationTransformer.m */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		7B9AA2C31427FBBA000D5CB4 /* FRLPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLPreferencesWindowController.h; sourceTree = "<group>"; };
 		7B9AA2C41427FBBA000D5CB4 /* FRLPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLPreferencesWindowController.m; sourceTree = "<group>"; };
 		7B9AA2C71427FBE2000D5CB4 /* FRLPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FRLPreferencesWindow.xib; sourceTree = "<group>"; };
+		7BA5316822AEFE3400FC56E2 /* Tunes Time Counter.help */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Tunes Time Counter.help"; sourceTree = "<group>"; };
 		7BBA120713880B91000B0926 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		7BBA120A13880C01000B0926 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		7BEB8001138958EA0094B7BC /* FRLDurationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLDurationTransformer.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				7B93E37F22A16DBA00709971 /* Assets.xcassets */,
+				7BA5316822AEFE3400FC56E2 /* Tunes Time Counter.help */,
 				7B6076101364637300BDC2BE /* Tunes Time Counter-Info.plist */,
 				7B6076111364637300BDC2BE /* InfoPlist.strings */,
 				7B7984DF138935E3001AB3E3 /* Localizable.strings */,
@@ -207,6 +210,7 @@
 			files = (
 				7B6076131364637300BDC2BE /* InfoPlist.strings in Resources */,
 				7B6076191364637300BDC2BE /* Credits.rtf in Resources */,
+				7BA5316922AEFE3400FC56E2 /* Tunes Time Counter.help in Resources */,
 				7B60761F1364637400BDC2BE /* MainMenu.xib in Resources */,
 				7B7984DD138935E3001AB3E3 /* Localizable.strings in Resources */,
 				7B93E38022A16DBA00709971 /* Assets.xcassets in Resources */,
