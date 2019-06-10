@@ -93,25 +93,25 @@
 	for (iTunesSource *curSource in iTunes.sources) {
 		if ([curSource kind] != iTunesESrcLibrary) continue;
 		
-		for (iTunesPlaylist *curPlaylist in [curSource libraryPlaylists]) {
-			for (iTunesFileTrack *curTrack in [[curPlaylist tracks] get]) {
+		for (iTunesPlaylist *curPlaylist in curSource.libraryPlaylists) {
+			for (iTunesFileTrack *curTrack in [curPlaylist.tracks get]) {
 				if (NSThread.currentThread.isCancelled) {end(); return;}
 				
-				NSInteger playedCount = [curTrack playedCount];
-				double duration = [curTrack finish]-[curTrack start];
+				NSInteger playedCount = curTrack.playedCount;
+				double duration = curTrack.finish-curTrack.start;
 				NSMutableDictionary *added = [NSMutableDictionary dictionary];
-				[added setObject:[curTrack name] forKey:@"track_name"];
-				[added setObject:[curTrack sortName] forKey:@"sort_track_name"];
-				[added setObject:[curTrack artist] forKey:@"artist"];
-				[added setObject:[curTrack sortArtist] forKey:@"sort_artist"];
-				[added setObject:[curTrack album] forKey:@"album"];
-				[added setObject:[curTrack sortAlbum] forKey:@"sort_album"];
-				[added setObject:[curTrack composer] forKey:@"composer"];
-				[added setObject:[curTrack sortComposer] forKey:@"sort_composer"];
+				[added setObject:curTrack.name forKey:@"track_name"];
+				[added setObject:curTrack.sortName forKey:@"sort_track_name"];
+				[added setObject:curTrack.artist forKey:@"artist"];
+				[added setObject:curTrack.sortArtist forKey:@"sort_artist"];
+				[added setObject:curTrack.album forKey:@"album"];
+				[added setObject:curTrack.sortAlbum forKey:@"sort_album"];
+				[added setObject:curTrack.composer forKey:@"composer"];
+				[added setObject:curTrack.sortComposer forKey:@"sort_composer"];
 				[added setObject:[NSNumber numberWithDouble:duration] forKey:@"track_length"];
 				[added setObject:[NSNumber numberWithInteger:playedCount] forKey:@"play_count"];
 				[added setObject:[NSNumber numberWithDouble:duration*playedCount] forKey:@"total_play_time"];
-				if ([curTrack playedDate] != nil) [added setObject:[curTrack playedDate] forKey:@"last_played_date"];
+				if ([curTrack playedDate] != nil) [added setObject:curTrack.playedDate forKey:@"last_played_date"];
 				
 				if ([[added objectForKey:@"sort_track_name"] isEqualToString:@""]) [added setObject:[added objectForKey:@"track_name"] forKey:@"sort_track_name"];
 				if ([[added objectForKey:@"sort_artist"] isEqualToString:@""]) [added setObject:[added objectForKey:@"artist"] forKey:@"sort_artist"];
