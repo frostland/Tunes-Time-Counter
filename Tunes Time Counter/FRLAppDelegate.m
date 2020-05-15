@@ -100,23 +100,24 @@
 				NSInteger playedCount = curTrack.playedCount;
 				double duration = curTrack.finish-curTrack.start;
 				NSMutableDictionary *added = [NSMutableDictionary dictionary];
-				[added setObject:curTrack.name forKey:@"track_name"];
-				[added setObject:curTrack.sortName forKey:@"sort_track_name"];
-				[added setObject:curTrack.artist forKey:@"artist"];
-				[added setObject:curTrack.sortArtist forKey:@"sort_artist"];
-				[added setObject:curTrack.album forKey:@"album"];
-				[added setObject:curTrack.sortAlbum forKey:@"sort_album"];
-				[added setObject:curTrack.composer forKey:@"composer"];
-				[added setObject:curTrack.sortComposer forKey:@"sort_composer"];
-				[added setObject:[NSNumber numberWithDouble:duration] forKey:@"track_length"];
-				[added setObject:[NSNumber numberWithInteger:playedCount] forKey:@"play_count"];
-				[added setObject:[NSNumber numberWithDouble:duration*playedCount] forKey:@"total_play_time"];
-				if ([curTrack playedDate] != nil) [added setObject:curTrack.playedDate forKey:@"last_played_date"];
+				added[@"track_name"]      = curTrack.name;
+				added[@"sort_track_name"] = curTrack.sortName;
+				added[@"artist"]          = curTrack.artist;
+				added[@"sort_artist"]     = curTrack.sortArtist;
+				added[@"album"]           = curTrack.album;
+				added[@"sort_album"]      = curTrack.sortAlbum;
+				added[@"composer"]        = curTrack.composer;
+				added[@"sort_composer"]   = curTrack.sortComposer;
+				added[@"track_length"]    = @(duration);
+				added[@"play_count"]      = @(playedCount);
+				added[@"total_play_time"] = @(duration*playedCount);
+				if ([curTrack playedDate] != nil)
+					added[@"last_played_date"]  = curTrack.playedDate;
 				
-				if ([[added objectForKey:@"sort_track_name"] isEqualToString:@""]) [added setObject:[added objectForKey:@"track_name"] forKey:@"sort_track_name"];
-				if ([[added objectForKey:@"sort_artist"] isEqualToString:@""]) [added setObject:[added objectForKey:@"artist"] forKey:@"sort_artist"];
-				if ([[added objectForKey:@"sort_album"] isEqualToString:@""]) [added setObject:[added objectForKey:@"album"] forKey:@"sort_album"];
-				if ([[added objectForKey:@"sort_composer"] isEqualToString:@""]) [added setObject:[added objectForKey:@"composer"] forKey:@"sort_composer"];
+				if ([added[@"sort_track_name"] isEqualToString:@""]) added[@"sort_track_name"] = added[@"track_name"];
+				if ([added[@"sort_artist"] isEqualToString:@""])     added[@"sort_artist"]     = added[@"artist"];
+				if ([added[@"sort_album"] isEqualToString:@""])      added[@"sort_album"]      = added[@"album"];
+				if ([added[@"sort_composer"] isEqualToString:@""])   added[@"sort_composer"]   = added[@"composer"];
 				if (showsZeroLength || duration > 0) [newTrackProperties addObject:added];
 			}
 		}
