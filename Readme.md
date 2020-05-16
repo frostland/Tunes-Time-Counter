@@ -3,19 +3,16 @@
 ## TODO
 Nothing! 😊
 
-## Known issues
-- About the  plural. In French, the singular form is used for 0.
-  For other languages, the plural form is used in that case.
-  I did not treated French differently, all languages use
-  plural form when there is 0 elements.
-
-## To generate the file `iTunes.h`
+## To Generate `iTunes.h` and `Music.h`
 ```bash
+# On a computer with iTunes installed (before Catalina)
 sdef /Applications/iTunes.app | sdp -fh --basename "iTunes"
+# On a computer with Music installed (Catalina and later)
+sdef /System/Applications/Music.app | sdp -fh --basename "Music"
 ```
 
-## To generate the help index
+## To Generate the Help Index
 ```bash
 hiutil -C -a -g -s en -l en -vv -f Tunes\ Time\ Counter/Tunes\ Time\ Counter.help/Contents/Resources/en.lproj/TunesTimeCounter.helpindex Tunes\ Time\ Counter/Tunes\ Time\ Counter.help/Contents/Resources/en.lproj
 ```
-(Once for each languages in the help folder.)
+(Once for each language in the help folder.)
