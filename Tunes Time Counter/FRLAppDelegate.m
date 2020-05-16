@@ -12,10 +12,15 @@
 #import "FRLConstants.h"
 
 
+#define MUSIC_BUNDLE_ID  (@"com.apple.Music")
+#define ITUNES_BUNDLE_ID (@"com.apple.iTunes")
+
+
 
 @interface FRLAppDelegate (Private)
 
 - (void)updateInfosString;
+- (BOOL)hasAccessToMusicApp;
 
 @end
 
@@ -40,7 +45,8 @@
 		justLaunched = YES;
 		[self updateInfosString];
 		self.tracksProperties = [NSMutableArray new];
-		iTunes = (iTunesApplication *)[[SBApplication alloc] initWithBundleIdentifier:@"com.apple.iTunes"];
+		music = (MusicApplication *)[[SBApplication alloc] initWithBundleIdentifier:MUSIC_BUNDLE_ID];
+		iTunes = (iTunesApplication *)[[SBApplication alloc] initWithBundleIdentifier:ITUNES_BUNDLE_ID];
 	}
 	return self;
 }
@@ -67,7 +73,7 @@
 
 - (void)doRefreshTracksInfos:(id)threadDatas
 {
-	if (!iTunes.isRunning) {
+	if (!iTunes.isRunning && !music.isRunning) {
 		dispatch_async(dispatch_get_main_queue(), ^{
 			NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"iTunes not running", nil)
 														defaultButton:NSLocalizedString(@"ok maj", nil)
@@ -80,48 +86,65 @@
 		return;
 	}
 	
+	if (![self hasAccessToMusicApp]) {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"needs permission title", nil)
+														defaultButton:NSLocalizedString(@"ok maj", nil)
+													 alternateButton:nil
+														  otherButton:nil
+										informativeTextWithFormat:NSLocalizedString(@"needs permission content", nil)];
+			[alert runModal];
+		});
+		[NSThread exit];
+		return;
+	}
+	
 	BOOL showsZeroLength = [NSUserDefaults.standardUserDefaults boolForKey:FRL_UDK_SHOW_ZERO_LENGTH_TRACKS];
 	
-	NSMutableArray *newTrackProperties = [NSMutableArray new];
+	NSMutableArray *newTracksProperties = [NSMutableArray new];
 	void (^end)(void) = ^{
 		dispatch_async(dispatch_get_main_queue(), ^{
-			self.tracksProperties = newTrackProperties;
+			self.tracksProperties = newTracksProperties;
 		});
 		[NSThread exit];
 	};
 	
-	for (iTunesSource *curSource in iTunes.sources) {
-		if ([curSource kind] != iTunesESrcLibrary) continue;
-		
-		for (iTunesPlaylist *curPlaylist in curSource.libraryPlaylists) {
-			for (iTunesFileTrack *curTrack in [curPlaylist.tracks get]) {
-				if (NSThread.currentThread.isCancelled) {end(); return;}
-				
-				NSInteger playedCount = curTrack.playedCount;
-				double duration = curTrack.finish-curTrack.start;
-				NSMutableDictionary *added = [NSMutableDictionary dictionary];
-				added[@"track_name"]      = curTrack.name;
-				added[@"sort_track_name"] = curTrack.sortName;
-				added[@"artist"]          = curTrack.artist;
-				added[@"sort_artist"]     = curTrack.sortArtist;
-				added[@"album"]           = curTrack.album;
-				added[@"sort_album"]      = curTrack.sortAlbum;
-				added[@"composer"]        = curTrack.composer;
-				added[@"sort_composer"]   = curTrack.sortComposer;
-				added[@"track_length"]    = @(duration);
-				added[@"play_count"]      = @(playedCount);
-				added[@"total_play_time"] = @(duration*playedCount);
-				if ([curTrack playedDate] != nil)
-					added[@"last_played_date"]  = curTrack.playedDate;
-				
-				if ([added[@"sort_track_name"] isEqualToString:@""]) added[@"sort_track_name"] = added[@"track_name"];
-				if ([added[@"sort_artist"] isEqualToString:@""])     added[@"sort_artist"]     = added[@"artist"];
-				if ([added[@"sort_album"] isEqualToString:@""])      added[@"sort_album"]      = added[@"album"];
-				if ([added[@"sort_composer"] isEqualToString:@""])   added[@"sort_composer"]   = added[@"composer"];
-				if (showsZeroLength || duration > 0) [newTrackProperties addObject:added];
-			}
-		}
+#define CREATE_NEW_TRACKS_PROPERTIES(APP_NAME, APP_INSTANCE) \
+	for (APP_NAME ## Source *curSource in (APP_INSTANCE).sources) { \
+		if ([curSource kind] != APP_NAME ## ESrcLibrary) continue; \
+		\
+		for (APP_NAME ## Playlist *curPlaylist in curSource.libraryPlaylists) { \
+			for (APP_NAME ## FileTrack *curTrack in [curPlaylist.tracks get]) { \
+				if (NSThread.currentThread.isCancelled) {end(); return;} \
+				\
+				NSInteger playedCount = curTrack.playedCount; \
+				double duration = curTrack.finish-curTrack.start; \
+				NSMutableDictionary *added = [NSMutableDictionary dictionary]; \
+				added[@"track_name"]      = curTrack.name; \
+				added[@"sort_track_name"] = curTrack.sortName; \
+				added[@"artist"]          = curTrack.artist; \
+				added[@"sort_artist"]     = curTrack.sortArtist; \
+				added[@"album"]           = curTrack.album; \
+				added[@"sort_album"]      = curTrack.sortAlbum; \
+				added[@"composer"]        = curTrack.composer; \
+				added[@"sort_composer"]   = curTrack.sortComposer; \
+				added[@"track_length"]    = @(duration); \
+				added[@"play_count"]      = @(playedCount); \
+				added[@"total_play_time"] = @(duration*playedCount); \
+				if ([curTrack playedDate] != nil) \
+					added[@"last_played_date"]  = curTrack.playedDate; \
+				\
+				if ([added[@"sort_track_name"] isEqualToString:@""]) added[@"sort_track_name"] = added[@"track_name"]; \
+				if ([added[@"sort_artist"] isEqualToString:@""])     added[@"sort_artist"]     = added[@"artist"]; \
+				if ([added[@"sort_album"] isEqualToString:@""])      added[@"sort_album"]      = added[@"album"]; \
+				if ([added[@"sort_composer"] isEqualToString:@""])   added[@"sort_composer"]   = added[@"composer"]; \
+				if (showsZeroLength || duration > 0) [newTracksProperties addObject:added]; \
+			} \
+		} \
 	}
+	
+	if      (music != nil)  {CREATE_NEW_TRACKS_PROPERTIES(Music, music);}
+	else if (iTunes != nil) {CREATE_NEW_TRACKS_PROPERTIES(iTunes, iTunes);}
 	
 	end();
 }
@@ -245,4 +268,21 @@
 					  selectedInfoString, FRLDurationToString(sTotalListenedDuration, fullInfos)];
 }
 
+- (BOOL)hasAccessToMusicApp
+{
+	if (@available(macOS 10.14, *)) {
+		NSString *bundleId = (music != nil ? MUSIC_BUNDLE_ID : ITUNES_BUNDLE_ID);
+		
+		const AEDesc *aeDesc = [NSAppleEventDescriptor descriptorWithBundleIdentifier:bundleId].aeDesc;
+		if (aeDesc == nil) return NO;
+		
+		OSStatus permission = AEDeterminePermissionToAutomateTarget(aeDesc, typeAppleEvent, typeWildCard, YES);
+		AEDisposeDesc((AEDesc *)aeDesc);
+		
+		NSLog(@"DEBUG - Got permission %d", permission);
+		return permission == noErr;
+	}
+	
+	return YES;
+}
 @end

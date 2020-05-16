@@ -10,6 +10,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import "Music.h"
 #import "iTunes.h"
 
 #import "FRLPreferencesWindowController.h"
@@ -23,6 +24,7 @@
 	FRLPreferencesWindowController *prefWindowController;
 	
 	NSThread *threadRefreshingTracksInfos;
+	MusicApplication *music;
 	iTunesApplication *iTunes;
 	
 	BOOL justLaunched;

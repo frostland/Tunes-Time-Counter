@@ -7,8 +7,10 @@
 */
 
 "ok maj" = "OK";
-"iTunes not running" = "iTunes Is Not Running";
-"please launch iTunes to refresh track infos" = "Please launch iTunes before using this application. It uses Applescript to communicate with iTunes, then iTunes must be launched for the communication to be made.";
+"iTunes not running" = "Neither Music Nor iTunes Is Running";
+"please launch iTunes to refresh track infos" = "Tunes Time Counter uses AppleScript to communicate with the Music (or iTunes) app. AppleScript require an app to be launched to be able to communicate with it.";
+"needs permission title" = "AppleEvents Disabled for Tunes Time Counter";
+"needs permission content" = "Tunes Time Counter needs permission to control Music (or iTunes). Please give permission in System Preferences, Security & Privacy, in the Privacy tab, in the Automation section, click the checkbox next to Tunes Time Counter.";
 
 "stop" = "Stop";
 "stopping" = "Stopping…";

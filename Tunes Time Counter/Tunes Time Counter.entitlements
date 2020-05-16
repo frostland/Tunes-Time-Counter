@@ -6,7 +6,16 @@
 	<true/>
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
-	<key>com.apple.security.temporary-exception.apple-events</key>
-	<string>com.apple.itunes</string>
+	<key>com.apple.security.scripting-targets</key>
+	<dict>
+		<key>com.apple.iTunes</key>
+		<array>
+			<string>com.apple.iTunes.library.read</string>
+		</array>
+		<key>com.apple.Music</key>
+		<array>
+			<string>com.apple.Music.library.read</string>
+		</array>
+	</dict>
 </dict>
 </plist>

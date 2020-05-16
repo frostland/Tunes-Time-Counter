@@ -37,6 +37,7 @@
 		7B6076181364637300BDC2BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7B60761A1364637300BDC2BE /* FRLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLAppDelegate.h; sourceTree = "<group>"; };
 		7B60761B1364637300BDC2BE /* FRLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLAppDelegate.m; sourceTree = "<group>"; };
+		7B75989D246F14A400BC7EB1 /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		7B7984D913892DA5001AB3E3 /* FRLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLUtils.h; sourceTree = "<group>"; };
 		7B7984DA13892ED5001AB3E3 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		7B7984DE138935E3001AB3E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 				7B7984DF138935E3001AB3E3 /* Localizable.strings */,
 				7B6076141364637300BDC2BE /* Tunes Time Counter-Prefix.pch */,
 				7B7984DA13892ED5001AB3E3 /* iTunes.h */,
+				7B75989D246F14A400BC7EB1 /* Music.h */,
 				7B7984D913892DA5001AB3E3 /* FRLUtils.h */,
 				7B7984E013893DC2001AB3E3 /* FRLUtils.m */,
 				7B7C6CB2138A9F0F00771902 /* FRLConstants.h */,
